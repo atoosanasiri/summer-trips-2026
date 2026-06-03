@@ -231,6 +231,23 @@
   transform: translateY(-1px);
 }
 
+.trip-footer-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.trip-link--outline {
+  background: transparent;
+  color: var(--sky-dark);
+  border: 2px solid var(--sky-dark);
+}
+
+.trip-link--outline:hover {
+  background: var(--sky-dark);
+  color: var(--white);
+}
+
 @media (max-width: 640px) {
   .trips-grid { padding: 1.5rem 1rem 3rem; }
   .trips-meta-bar { flex-direction: column; gap: 0.25rem; text-align: center; }

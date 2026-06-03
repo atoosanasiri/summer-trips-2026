@@ -5,9 +5,127 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Travel Itinerary — Summer 2026</title>
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/trips.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    .itin-index-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 2rem 6rem;
+    }
+
+    .itin-index-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      text-decoration: none;
+      color: var(--text);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      border: 1px solid rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s, box-shadow 0.25s;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.45s forwards;
+    }
+
+    .itin-index-card:nth-child(1) { animation-delay: 0.05s; }
+    .itin-index-card:nth-child(2) { animation-delay: 0.12s; }
+    .itin-index-card:nth-child(3) { animation-delay: 0.19s; }
+    .itin-index-card:nth-child(4) { animation-delay: 0.26s; }
+    .itin-index-card:nth-child(5) { animation-delay: 0.33s; }
+    .itin-index-card:nth-child(6) { animation-delay: 0.40s; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .itin-index-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 36px rgba(0,0,0,0.12);
+    }
+
+    .itin-card-banner {
+      height: 10px;
+    }
+
+    .itin-card-body {
+      padding: 1.5rem 1.6rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .itin-card-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .itin-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.15;
+    }
+
+    .itin-card-dates {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--sun);
+      letter-spacing: 0.05em;
+    }
+
+    .itin-card-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.65;
+      flex: 1;
+      margin-top: 0.25rem;
+    }
+
+    .itin-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.9rem 1.6rem;
+      border-top: 1px solid rgba(0,0,0,0.06);
+      background: var(--sand);
+    }
+
+    .itin-card-type {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .itin-card-cta {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--sky-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .itin-coming-soon .itin-card-cta {
+      color: var(--muted);
+      font-style: italic;
+      font-weight: 400;
+    }
+  </style>
 </head>
 <body>
   <nav class="navbar">
@@ -26,33 +144,99 @@
     <p>Every detail planned — so you can focus on the adventure, not the logistics.</p>
   </header>
 
-  <section class="content-section">
-    <h2>Itinerary Coming Soon</h2>
-    <p>The full summer itinerary is being crafted. From departure dates to hidden gems, everything will be laid out here.</p>
+  <div class="itin-index-grid">
 
-    <div class="placeholder-grid">
-      <div class="placeholder-card">
-        <div class="ph-icon">&#9992;</div>
-        <strong>Flights &amp; Transport</strong>
-        Details TBD
+    <!-- 1. Wiarton -->
+    <a href="itinerary-wiarton.html" class="itin-index-card">
+      <div class="itin-card-banner" style="background: linear-gradient(to right, var(--sky-dark), var(--green));"></div>
+      <div class="itin-card-body">
+        <div class="itin-card-eyebrow">Ontario &middot; Cabin</div>
+        <div class="itin-card-title">Wiarton Weekend</div>
+        <div class="itin-card-dates">Jun 26 – 28</div>
+        <div class="itin-card-desc">Cliffside trails on the Bruce, a swim at the Grotto, campfire nights, and fish &amp; chips in Tobermory.</div>
       </div>
-      <div class="placeholder-card">
-        <div class="ph-icon">&#127963;</div>
-        <strong>Accommodation</strong>
-        Details TBD
+      <div class="itin-card-footer">
+        <span class="itin-card-type">3 days &middot; 2 major hikes</span>
+        <span class="itin-card-cta">View itinerary &rarr;</span>
       </div>
-      <div class="placeholder-card">
-        <div class="ph-icon">&#128197;</div>
-        <strong>Day Plans</strong>
-        Details TBD
+    </a>
+
+    <!-- 2. Burk's Falls -->
+    <a href="itinerary-burks-falls.html" class="itin-index-card itin-coming-soon">
+      <div class="itin-card-banner" style="background: linear-gradient(to right, var(--sun), #e07030);"></div>
+      <div class="itin-card-body">
+        <div class="itin-card-eyebrow">Ontario &middot; Cabin</div>
+        <div class="itin-card-title">Burk's Falls</div>
+        <div class="itin-card-dates">Jul 10 – 12</div>
+        <div class="itin-card-desc">A riverside cabin in cottage country — canoe runs, waterfall trails, and slow summer mornings in Muskoka.</div>
       </div>
-      <div class="placeholder-card">
-        <div class="ph-icon">&#127860;</div>
-        <strong>Food &amp; Dining</strong>
-        Details TBD
+      <div class="itin-card-footer">
+        <span class="itin-card-type">3 days &middot; Muskoka</span>
+        <span class="itin-card-cta">Coming soon</span>
       </div>
-    </div>
-  </section>
+    </a>
+
+    <!-- 3. Walsingham -->
+    <a href="itinerary-walsingham.html" class="itin-index-card itin-coming-soon">
+      <div class="itin-card-banner" style="background: linear-gradient(to right, var(--green), #1a5c33);"></div>
+      <div class="itin-card-body">
+        <div class="itin-card-eyebrow">Ontario &middot; Tree House</div>
+        <div class="itin-card-title">Walsingham Treehouse</div>
+        <div class="itin-card-dates">Jul 24 – 26</div>
+        <div class="itin-card-desc">A night in the canopy — treehouse stay deep in Norfolk County forest with hiking and beach days on Lake Erie.</div>
+      </div>
+      <div class="itin-card-footer">
+        <span class="itin-card-type">3 days &middot; Lake Erie</span>
+        <span class="itin-card-cta">Coming soon</span>
+      </div>
+    </a>
+
+    <!-- 4. Port Dover -->
+    <a href="itinerary-port-dover.html" class="itin-index-card itin-coming-soon">
+      <div class="itin-card-banner" style="background: linear-gradient(to right, #3a9ad4, var(--sky-dark));"></div>
+      <div class="itin-card-body">
+        <div class="itin-card-eyebrow">Ontario &middot; Cabin</div>
+        <div class="itin-card-title">Port Dover</div>
+        <div class="itin-card-dates">Jul 25 – 26</div>
+        <div class="itin-card-desc">Lake Erie beach town vibes — fish &amp; chips, a sandy beach, local ice cream, and a classic Ontario summer afternoon.</div>
+      </div>
+      <div class="itin-card-footer">
+        <span class="itin-card-type">2 days &middot; Lake Erie</span>
+        <span class="itin-card-cta">Coming soon</span>
+      </div>
+    </a>
+
+    <!-- 5. Killaloe -->
+    <a href="itinerary-killaloe.html" class="itin-index-card itin-coming-soon">
+      <div class="itin-card-banner" style="background: linear-gradient(to right, #8a5c0a, var(--sun));"></div>
+      <div class="itin-card-body">
+        <div class="itin-card-eyebrow">Ontario &middot; Cabin</div>
+        <div class="itin-card-title">Killaloe</div>
+        <div class="itin-card-dates">Aug 7 – 9</div>
+        <div class="itin-card-desc">Deep in the Ottawa Valley — kayaking the Bonnechere River, quiet forest trails, and stargazing far from city lights.</div>
+      </div>
+      <div class="itin-card-footer">
+        <span class="itin-card-type">3 days &middot; Ottawa Valley</span>
+        <span class="itin-card-cta">Coming soon</span>
+      </div>
+    </a>
+
+    <!-- 6. Dorset -->
+    <a href="itinerary-dorset.html" class="itin-index-card itin-coming-soon">
+      <div class="itin-card-banner" style="background: linear-gradient(to right, #b04010, #e07030);"></div>
+      <div class="itin-card-body">
+        <div class="itin-card-eyebrow">Ontario &middot; Cabin</div>
+        <div class="itin-card-title">Dorset</div>
+        <div class="itin-card-dates">Aug 27 – 30</div>
+        <div class="itin-card-desc">The last trip of summer — Haliburton Highlands, fire tower climbs, Lake of Bays, and the first turning leaves of early autumn.</div>
+      </div>
+      <div class="itin-card-footer">
+        <span class="itin-card-type">4 days &middot; Haliburton</span>
+        <span class="itin-card-cta">Coming soon</span>
+      </div>
+    </a>
+
+  </div>
 
   <footer class="footer">
     <p>&copy; 2026 Summer Trips. Made with wanderlust.</p>
