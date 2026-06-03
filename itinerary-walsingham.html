@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Walsingham Treehouse · Jul 24–26 — Summer 2026</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/itinerary.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Booking bar ── */
+    .booking-bar {
+      background: var(--sky-dark);
+      color: rgba(255,255,255,0.75);
+      padding: 0.9rem 8%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem 2.5rem;
+      align-items: center;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+    .booking-item { display: flex; gap: 0.5rem; align-items: baseline; }
+    .bi-label {
+      font-size: 0.62rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.4);
+    }
+    .booking-bar a {
+      color: var(--sun);
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1px solid rgba(245,166,35,0.35);
+      transition: border-color 0.2s;
+    }
+    .booking-bar a:hover { border-color: var(--sun); }
+
+    /* ── Feature sections ── */
+    .feature-section {
+      padding: 5rem 8%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .feature-section.forest-bg { background: linear-gradient(135deg, #e4f0d4, #d8e8c4); }
+    .feature-section.beach-bg  { background: linear-gradient(135deg, #dceef8, #cce4f4); }
+
+    .feature-text { display: flex; flex-direction: column; gap: 1rem; }
+    .feature-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    .feature-section.forest-bg .feature-eyebrow { color: var(--green); }
+    .feature-section.beach-bg  .feature-eyebrow { color: var(--sky); }
+
+    .feature-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 900;
+      line-height: 0.95;
+    }
+    .feature-section.forest-bg .feature-title { color: #1a3010; }
+    .feature-section.beach-bg  .feature-title { color: #1a303a; }
+    .feature-title em { font-style: italic; display: block; }
+    .feature-section.forest-bg .feature-title em { color: var(--green); }
+    .feature-section.beach-bg  .feature-title em { color: var(--sky); }
+
+    .feature-desc {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: var(--muted);
+      max-width: 420px;
+    }
+    .feature-facts { display: flex; flex-direction: column; gap: 0.6rem; margin-top: 0.5rem; }
+    .feature-fact {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .feature-section.forest-bg .feature-fact::before { content: '—'; color: var(--green); flex-shrink: 0; font-weight: 600; }
+    .feature-section.beach-bg  .feature-fact::before { content: '—'; color: var(--sky); flex-shrink: 0; font-weight: 600; }
+
+    .feature-visual { display: flex; align-items: center; justify-content: center; }
+    .feature-svg { width: 100%; max-width: 380px; border-radius: 12px; overflow: hidden; }
+
+    /* ── Lake wave animation (Saturday visual) ── */
+    .lake-scene { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; position: relative; }
+    .lake-bg { position: absolute; bottom: 0; left: 0; right: 0; height: 55%; overflow: hidden; }
+    .lwave {
+      position: absolute; bottom: 0;
+      width: 200%; left: -50%;
+      background: rgba(26,107,170,0.18);
+      border-radius: 40% 60% 0 0;
+      animation: lwave 6s ease-in-out infinite;
+    }
+    .lwave:nth-child(1) { height: 70px; }
+    .lwave:nth-child(2) { height: 50px; animation-delay: -3s; opacity: 0.5; }
+    @keyframes lwave {
+      0%,100% { transform: translateX(0); }
+      50%      { transform: translateX(-7%); }
+    }
+
+    /* ── Event badge ── */
+    .event-badge {
+      display: inline-block;
+      background: var(--sun);
+      color: var(--white);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 0.6rem;
+    }
+
+    @media (max-width: 700px) {
+      .feature-section { grid-template-columns: 1fr; gap: 2rem; }
+      .booking-bar { padding: 0.9rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="back-btn" href="short-trips.html">&#8592; All Trips</a>
+
+  <!-- ══ HERO ══ -->
+  <section class="itin-hero">
+    <div class="itin-hero-bg" style="background: linear-gradient(155deg, #1a4010 0%, #2d6a28 45%, #1a6b4a 100%);"></div>
+
+    <div class="itin-trees">
+      <div class="itin-tree ta"></div>
+      <div class="itin-tree tc"></div>
+      <div class="itin-tree tb"></div>
+      <div class="itin-tree ta"></div>
+      <div class="itin-tree tc"></div>
+      <div class="itin-tree tb"></div>
+      <div class="itin-tree ta"></div>
+      <div class="itin-tree tc"></div>
+      <div class="itin-tree tb"></div>
+      <div class="itin-tree ta"></div>
+      <div class="itin-tree tc"></div>
+      <div class="itin-tree tb"></div>
+      <div class="itin-tree ta"></div>
+      <div class="itin-tree tc"></div>
+    </div>
+
+    <div class="itin-hero-content">
+      <div class="itin-eyebrow">Norfolk County &middot; July 24–26, 2026</div>
+      <h1 class="itin-hero-title">
+        Walsingham
+        <em>Tree House</em>
+      </h1>
+      <p class="itin-hero-sub">Old-growth Carolinian forest, Lake Erie kayaking, a treehouse in the magic forest, and a Sunday drive home through Brantford's oldest market.</p>
+      <div class="itin-stats">
+        <div class="itin-stat"><span class="num">3</span><span class="lbl">Days</span></div>
+        <div class="itin-stat"><span class="num">~2h</span><span class="lbl">From Toronto</span></div>
+        <div class="itin-stat"><span class="num">15+</span><span class="lbl">km Hike</span></div>
+        <div class="itin-stat"><span class="num">&#127754;</span><span class="lbl">Lake Erie</span></div>
+      </div>
+    </div>
+
+    <div class="itin-scroll-hint">
+      <span>Scroll</span>
+      <div class="itin-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ══ BOOKING BAR ══ -->
+  <div class="booking-bar">
+    <div class="booking-item"><span class="bi-label">Host</span><span>Erik &amp; Angela</span></div>
+    <div class="booking-item"><span class="bi-label">Address</span><span>610 Hazen Rd RR1, Walsingham, ON N0E 1X0</span></div>
+    <div class="booking-item"><span class="bi-label">Guests</span><span>Max 3 &middot; Pets allowed &middot; Quiet 10PM–8AM</span></div>
+    <div class="booking-item"><span class="bi-label">Cancel</span><span>Free before Jul 19 2PM &middot; Partial before Jul 24 2PM</span></div>
+    <div class="booking-item"><span class="bi-label">Cost</span><span>$272.86 CAD</span></div>
+    <div class="booking-item"><a href="https://www.airbnb.ca/rooms/610039857504941877?source_impression_id=p3_1780366940_P3yBvFLyGvlok0-C" target="_blank">View Listing &#8599;</a></div>
+  </div>
+
+  <!-- ══ ROUTE STRIP ══ -->
+  <div class="itin-route">
+    <div class="route-stop"><div class="route-dot-wrap"><div class="route-dot start"></div><div class="route-label">Toronto</div></div></div>
+    <div class="route-line"></div>
+    <div class="route-stop"><div class="route-dot-wrap"><div class="route-dot"></div><div class="route-label">Backus Woods</div></div></div>
+    <div class="route-line"></div>
+    <div class="route-stop"><div class="route-dot-wrap"><div class="route-dot"></div><div class="route-label">Walsingham Treehouse</div></div></div>
+    <div class="route-line"></div>
+    <div class="route-stop"><div class="route-dot-wrap"><div class="route-dot" style="background:var(--sky)"></div><div class="route-label">Turkey Point</div></div></div>
+    <div class="route-line"></div>
+    <div class="route-stop"><div class="route-dot-wrap"><div class="route-dot" style="background:var(--sky)"></div><div class="route-label">Lake Erie SUP / Kayak</div></div></div>
+    <div class="route-line"></div>
+    <div class="route-stop"><div class="route-dot-wrap"><div class="route-dot"></div><div class="route-label">Brantford Market</div></div></div>
+    <div class="route-line"></div>
+    <div class="route-stop"><div class="route-dot-wrap"><div class="route-dot"></div><div class="route-label">Paris, ON</div></div></div>
+    <div class="route-line"></div>
+    <div class="route-stop"><div class="route-dot-wrap"><div class="route-dot end"></div><div class="route-label">Toronto</div></div></div>
+  </div>
+
+  <!-- ══ FRIDAY ══ -->
+  <section class="day-section">
+    <div class="day-header day-fri-bg">
+      <div class="day-header-text">
+        <div class="day-label">Day 01 &middot; Friday</div>
+        <h2 class="day-title">Drive South,<br><em>Old-Growth Forest</em></h2>
+        <p class="day-desc">Leave Toronto mid-morning. Spend the afternoon in Backus Woods — Canada's finest Carolinian forest — then check in to the treehouse for fire and BBQ.</p>
+        <div class="day-bg-num">FRI</div>
+      </div>
+      <div class="day-visual day-fri-visual">&#127795;</div>
+    </div>
+
+    <div class="stops-list">
+
+      <div class="stop fri">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">10:00</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#128663;</span>
+          <div class="stop-name">Depart Toronto</div>
+          <div class="stop-location">Toronto &rarr; Backus Woods &middot; ~2.5 hrs via Hwy 403 W</div>
+          <div class="stop-detail">Mid-morning departure — no rush, no traffic. Take Hwy 403 west to Brantford, then south on County Rd 24 through Norfolk County toward Port Rowan. The drive through Norfolk is genuinely pretty — tobacco farms, forest roads, vineyard signs. Grab coffee before you leave; options thin out once you're past Brantford.</div>
+          <div class="stop-tags">
+            <span class="tag">Hwy 403 W</span>
+            <span class="tag">~2.5 hrs</span>
+            <span class="tag">Coffee before Brantford</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop fri">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">12:30</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#127795;</span>
+          <div class="stop-name">Backus Woods — 15+ km Loop</div>
+          <div class="stop-location">Port Rowan, Norfolk County &middot; Six trails &middot; 21 km total network</div>
+          <div class="stop-detail">Canada's largest remaining old-growth Carolinian forest. Six public trails covering 21 km total — string together 3–4 loops to hit your 15+ km target. Individual trails run 2.3–6.5 km each. The forest is extraordinary: Tulip Trees shooting 35 metres through the canopy, Black Gums that were seedlings when Cartier first sailed into the Gulf of St. Lawrence, Jefferson Salamanders, Prothonotary Warblers. Bring water and bug spray — it's lush, humid, and alive in July. Allow 4–5 hrs for 15+ km.</div>
+          <div class="stop-tags">
+            <span class="tag">21 km trail network</span>
+            <span class="tag">String 3–4 loops</span>
+            <span class="tag">Free &middot; No pass needed</span>
+            <span class="tag">4–5 hrs</span>
+            <span class="tag">Bug spray essential</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop fri">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-time">~5:30</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#127968;</span>
+          <div class="stop-name">Check-in &middot; Rustic Bunkie in Magic Forest</div>
+          <div class="stop-location">610 Hazen Rd RR1, Walsingham &middot; Check-in after 2PM</div>
+          <div class="stop-detail">Spring Arbour Magic Forest campground — your treehouse bunkie is tucked in the woods. Host Erik &amp; Angela greet you on arrival and show you around. Light the fire, set up the BBQ, and settle in. The outdoor kitchen is excellent — use it and leave it clean. Fire pit available by arrangement with hosts. Bring your own sheets (twin above, double below) and towels.</div>
+          <div class="stop-tags">
+            <span class="tag">Check-in after 2PM</span>
+            <span class="tag">Host greeting</span>
+            <span class="tag">Fire + BBQ</span>
+            <span class="tag">Bring sheets &amp; towels</span>
+            <span class="tag">No glass bottles</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ BACKUS WOODS FEATURE ══ -->
+  <section class="feature-section forest-bg">
+    <div class="feature-text">
+      <div class="feature-eyebrow">Friday Highlight &middot; 15+ km Hike</div>
+      <div class="feature-title">Backus<br><em>Woods</em></div>
+      <p class="feature-desc">One of the oldest forests in Canada and the finest remaining example of Carolinian old-growth in the country. Six trails, 21 km of network, ancient trees, and species found nowhere else in Canada.</p>
+      <div class="feature-facts">
+        <div class="feature-fact">Six public trails totalling 21 km — combine 3–4 for your 15+ km target</div>
+        <div class="feature-fact">Black Gum trees over 400 years old — seedlings when Europeans first explored Canada</div>
+        <div class="feature-fact">Tulip Trees reaching 35 metres — tallest trees east of the Rockies</div>
+        <div class="feature-fact">25% of Canada's species at risk found in Carolinian zone — many in Backus Woods</div>
+        <div class="feature-fact">Free and open year-round — no reservation needed</div>
+        <div class="feature-fact">Trail map: norfolkcounty.ca/Backus_Woods_Trail.pdf</div>
+      </div>
+    </div>
+    <div class="feature-visual">
+      <svg class="feature-svg" viewBox="0 0 380 340" xmlns="http://www.w3.org/2000/svg">
+        <rect width="380" height="340" fill="#d8eccc"/>
+        <circle cx="300" cy="50" r="40" fill="#f5e060" opacity="0.4"/>
+        <ellipse cx="190" cy="80" rx="160" ry="60" fill="#2d8a4e" opacity="0.25"/>
+        <ellipse cx="100" cy="70" rx="100" ry="50" fill="#2d8a4e" opacity="0.3"/>
+        <ellipse cx="280" cy="65" rx="90" ry="45" fill="#1a6b3a" opacity="0.25"/>
+        <rect x="60" y="120" width="18" height="160" fill="#6a4a2a"/>
+        <ellipse cx="69" cy="100" rx="45" ry="55" fill="#2d8a4e" opacity="0.9"/>
+        <rect x="160" y="100" width="22" height="180" fill="#6a4a2a"/>
+        <ellipse cx="171" cy="78" rx="55" ry="65" fill="#1a6b3a" opacity="0.9"/>
+        <rect x="280" y="130" width="16" height="150" fill="#6a4a2a"/>
+        <ellipse cx="288" cy="110" rx="40" ry="50" fill="#2d8a4e" opacity="0.9"/>
+        <rect x="200" y="50" width="12" height="220" fill="#7a5a3a"/>
+        <ellipse cx="206" cy="40" rx="30" ry="50" fill="#0d4a20" opacity="0.95"/>
+        <ellipse cx="190" cy="290" rx="180" ry="30" fill="#2d8a4e" opacity="0.35"/>
+        <rect x="0" y="280" width="380" height="60" fill="#3a9a50" opacity="0.45"/>
+        <path d="M150,340 Q170,280 185,220 Q195,180 200,140" stroke="#c8a868" stroke-width="6" fill="none" stroke-dasharray="8,4" opacity="0.7"/>
+        <rect x="240" y="160" width="122" height="48" rx="6" fill="rgba(255,255,255,0.82)"/>
+        <text x="301" y="179" font-family="monospace" font-size="8" fill="#1a3810" text-anchor="middle" font-weight="bold">BLACK GUM TREE</text>
+        <text x="301" y="193" font-family="monospace" font-size="7.5" fill="#1a3810" text-anchor="middle">~400 years old</text>
+        <line x1="240" y1="184" x2="212" y2="160" stroke="#2d8a4e" stroke-width="1" stroke-dasharray="3,2" opacity="0.6"/>
+        <circle cx="185" cy="215" r="6" fill="#f5a623"/>
+        <line x1="185" y1="221" x2="185" y2="240" stroke="#f5a623" stroke-width="2.5"/>
+        <line x1="185" y1="228" x2="178" y2="235" stroke="#f5a623" stroke-width="2"/>
+        <line x1="185" y1="228" x2="192" y2="235" stroke="#f5a623" stroke-width="2"/>
+        <line x1="185" y1="240" x2="179" y2="254" stroke="#f5a623" stroke-width="2"/>
+        <line x1="185" y1="240" x2="191" y2="254" stroke="#f5a623" stroke-width="2"/>
+        <rect x="10" y="10" width="72" height="34" rx="5" fill="#2d8a4e" opacity="0.9"/>
+        <text x="46" y="23" font-family="monospace" font-size="7" fill="white" text-anchor="middle">15+ KM</text>
+        <text x="46" y="35" font-family="monospace" font-size="6.5" fill="white" text-anchor="middle">TRAIL NETWORK</text>
+      </svg>
+    </div>
+  </section>
+
+  <div class="scenic-break scenic-break-fri">
+    <div class="scenic-quote">"The Carolinian Life Zone covers less than 1% of Canada's land — yet holds 25% of its endangered species. Backus Woods is its crown jewel."</div>
+  </div>
+
+  <!-- ══ SATURDAY ══ -->
+  <section class="day-section">
+    <div class="day-header day-sat-bg">
+      <div class="day-visual day-sat-visual" style="position:relative;">
+        <div class="lake-scene">
+          <div class="lake-bg"><div class="lwave"></div><div class="lwave"></div></div>
+          <span style="position:relative;z-index:1;font-size:4.5rem;">&#128678;</span>
+        </div>
+      </div>
+      <div class="day-header-text">
+        <div class="day-label">Day 02 &middot; Saturday</div>
+        <h2 class="day-title">Turkey Point,<br><em>Lake Erie Paddle</em></h2>
+        <p class="day-desc">Kayak or SUP on Lake Erie at Turkey Point — rentals available on-site. Two kilometres of sandy beach, warm water, and the Long Point Bay biosphere at your bow.</p>
+        <div class="day-bg-num">SAT</div>
+      </div>
+    </div>
+
+    <div class="stops-list">
+
+      <div class="stop sat">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">8:00</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#128293;</span>
+          <div class="stop-name">Morning at the Bunkie</div>
+          <div class="stop-location">610 Hazen Rd RR1, Walsingham</div>
+          <div class="stop-detail">Cook breakfast over the fire or in the outdoor kitchen. Pack swim gear, a dry bag, sunscreen, and water for the day. Turkey Point is ~25 min from the cabin — no rush, leave by 9:30 AM.</div>
+          <div class="stop-tags">
+            <span class="tag">Pack swim gear</span>
+            <span class="tag">Dry bag</span>
+            <span class="tag">Sunscreen</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop sat">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">10:00</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#127958;</span>
+          <div class="stop-name">Turkey Point Beach — Kayak &amp; SUP</div>
+          <div class="stop-location">Turkey Point Provincial Park, Norfolk County &middot; ~25 min from cabin</div>
+          <div class="stop-detail">Two kilometres of sandy Lake Erie beach inside Turkey Point Provincial Park. Waveline Rentals on-site rents kayaks, paddleboards, canoes, and jet boats — no need to bring your own unless you prefer it. The Long Point Bay paddling area is sheltered and calm, with the UNESCO Biosphere Reserve stretching into the distance. Paddle toward Long Point for open-water Erie views, or explore the creek inlets for wildlife. Allow 3–4 hrs on the water.</div>
+          <div class="stop-tags">
+            <span class="tag">Waveline Rentals on-site</span>
+            <span class="tag">Kayaks + SUPs</span>
+            <span class="tag">2 km sandy beach</span>
+            <span class="tag">UNESCO Biosphere</span>
+            <span class="tag">3–4 hrs</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop sat">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">1:30</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#127866;</span>
+          <div class="stop-name">Lunch: Blue Elephant or Port Rowan</div>
+          <div class="stop-location">Turkey Point / Port Rowan &middot; ~5 min from beach</div>
+          <div class="stop-detail">The Blue Elephant restaurant and brewery in Port Rowan is the local favourite — good food, local drafts, right near the harbour. Alternatively grab something light at the beach and save your appetite for tonight's cabin dinner.</div>
+          <div class="stop-tags">
+            <span class="tag">Blue Elephant</span>
+            <span class="tag">Port Rowan harbour</span>
+            <span class="tag">Local brewery</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop sat">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">3:00</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#127863;</span>
+          <div class="stop-name">Burning Kiln Winery — Optional</div>
+          <div class="stop-location">Norfolk County &middot; 3 km from Turkey Point</div>
+          <div class="stop-detail">Norfolk County has quietly become one of Ontario's best wine regions. Burning Kiln Winery is 3 km from Turkey Point and uses old tobacco kilns as its wine cellar — one of the most distinctive wineries in Ontario. Worth 45 minutes on the way back to the cabin if you're not tired from the water.</div>
+          <div class="stop-tags">
+            <span class="tag">Optional</span>
+            <span class="tag">Tobacco kiln cellar</span>
+            <span class="tag">~45 min</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop sat">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-time">~5:30</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#128293;</span>
+          <div class="stop-name">Cabin Fire &amp; BBQ Night</div>
+          <div class="stop-location">610 Hazen Rd RR1, Walsingham</div>
+          <div class="stop-detail">Back at the bunkie before dark. Light the fire — pre-arrange with Erik &amp; Angela (fire pit is by host permission). BBQ on the outdoor kitchen, music on, forest around you. Firewood is $15 cash per bundle or bring a hatchet and use fallen branches from the forest for free. Quiet hours at 10 PM — respect your camping neighbours.</div>
+          <div class="stop-tags">
+            <span class="tag">Pre-arrange fire with hosts</span>
+            <span class="tag">Firewood $15/bundle cash</span>
+            <span class="tag">Quiet 10PM</span>
+            <span class="tag">Outdoor kitchen</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ TURKEY POINT FEATURE ══ -->
+  <section class="feature-section beach-bg">
+    <div class="feature-text">
+      <div class="feature-eyebrow">Saturday &middot; Kayak &amp; SUP Rentals</div>
+      <div class="feature-title">Turkey Point<br><em>Lake Erie</em></div>
+      <p class="feature-desc">Two kilometres of sandy Lake Erie beach inside a provincial park, with on-site rentals and the UNESCO Long Point Biosphere Reserve stretching to the east. Norfolk County's best paddling spot.</p>
+      <div class="feature-facts">
+        <div class="feature-fact">Waveline Rentals: kayaks, SUPs, canoes, jet boats — right on the beach</div>
+        <div class="feature-fact">Also: Norfolk Kayak &amp; SUP Rentals (NKS), Simcoe — book ahead for July weekends</div>
+        <div class="feature-fact">Long Point Bay is calm and sheltered — ideal for open-water SUP</div>
+        <div class="feature-fact">Long Point is one of three UNESCO World Biosphere Reserves along the Great Lakes Waterfront Trail</div>
+        <div class="feature-fact">Bring your own SUP if you prefer — free beach launch</div>
+      </div>
+    </div>
+    <div class="feature-visual">
+      <svg class="feature-svg" viewBox="0 0 380 300" xmlns="http://www.w3.org/2000/svg">
+        <rect width="380" height="300" fill="#c8e8f4"/>
+        <circle cx="320" cy="45" r="35" fill="#f8e050" opacity="0.55"/>
+        <ellipse cx="80" cy="40" rx="45" ry="18" fill="white" opacity="0.65"/>
+        <ellipse cx="200" cy="30" rx="35" ry="14" fill="white" opacity="0.45"/>
+        <rect x="0" y="180" width="380" height="120" fill="#1a6baa" opacity="0.65"/>
+        <ellipse cx="80" cy="195" rx="50" ry="5" fill="#5aaad0" opacity="0.5"/>
+        <ellipse cx="220" cy="210" rx="65" ry="6" fill="#5aaad0" opacity="0.4"/>
+        <ellipse cx="320" cy="200" rx="40" ry="4" fill="#5aaad0" opacity="0.3"/>
+        <ellipse cx="190" cy="183" rx="200" ry="15" fill="#d4b870" opacity="0.9"/>
+        <rect x="0" y="175" width="380" height="20" fill="#c8a858" opacity="0.65"/>
+        <rect x="20" y="120" width="10" height="60" fill="#6a4a2a"/>
+        <ellipse cx="25" cy="110" rx="25" ry="35" fill="#2d8a4e" opacity="0.9"/>
+        <rect x="340" y="115" width="10" height="65" fill="#6a4a2a"/>
+        <ellipse cx="345" cy="105" rx="22" ry="30" fill="#1a6b3a" opacity="0.9"/>
+        <rect x="155" y="188" width="50" height="8" rx="3" fill="#d4a040" opacity="0.9"/>
+        <circle cx="180" cy="182" r="6" fill="#f5a623"/>
+        <line x1="180" y1="188" x2="180" y2="200" stroke="#f5a623" stroke-width="2"/>
+        <line x1="180" y1="192" x2="172" y2="198" stroke="#f5a623" stroke-width="2"/>
+        <line x1="180" y1="192" x2="188" y2="198" stroke="#f5a623" stroke-width="2"/>
+        <line x1="192" y1="178" x2="196" y2="206" stroke="#8a6030" stroke-width="2.5"/>
+        <ellipse cx="196" cy="207" rx="5" ry="3" fill="#6a4820" opacity="0.8"/>
+        <ellipse cx="100" cy="200" rx="30" ry="7" fill="#c05030" opacity="0.85"/>
+        <circle cx="100" cy="197" r="4" fill="#f5a623"/>
+        <rect x="230" y="220" width="132" height="40" rx="5" fill="rgba(255,255,255,0.78)"/>
+        <text x="296" y="235" font-family="monospace" font-size="7.5" fill="#0d4a7a" text-anchor="middle" font-weight="bold">LONG POINT BAY</text>
+        <text x="296" y="250" font-family="monospace" font-size="6.5" fill="#0d4a7a" text-anchor="middle">UNESCO Biosphere</text>
+        <rect x="10" y="10" width="92" height="34" rx="5" fill="#1a6baa" opacity="0.9"/>
+        <text x="56" y="23" font-family="monospace" font-size="7" fill="white" text-anchor="middle">LAKE ERIE</text>
+        <text x="56" y="35" font-family="monospace" font-size="6.5" fill="white" text-anchor="middle">TURKEY POINT</text>
+      </svg>
+    </div>
+  </section>
+
+  <div class="scenic-break scenic-break-sat">
+    <div class="scenic-quote">"Long Point Bay is one of three UNESCO World Biosphere Reserves along Ontario's Great Lakes Waterfront Trail — and the warmest swimming water in the province."</div>
+  </div>
+
+  <!-- ══ SUNDAY ══ -->
+  <section class="day-section">
+    <div class="day-header day-sun-bg">
+      <div class="day-header-text">
+        <div class="day-label">Day 03 &middot; Sunday</div>
+        <h2 class="day-title">Brantford Market<br><em>&amp; Drive Home</em></h2>
+        <p class="day-desc">Check out, then a slow Sunday drive north through Brantford's historic farmers market and the stone streets of Paris, Ontario — home by mid-afternoon.</p>
+        <div class="day-bg-num">SUN</div>
+      </div>
+      <div class="day-visual day-sun-visual">&#129506;</div>
+    </div>
+
+    <div class="stops-list">
+
+      <div class="stop sun">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">9:00</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#127749;</span>
+          <div class="stop-name">Last Morning at the Bunkie</div>
+          <div class="stop-location">610 Hazen Rd RR1 &middot; Check out before 12:00 PM</div>
+          <div class="stop-detail">Check-out is noon — take the morning to pack slowly and walk the forest trails around the property. Text Erik &amp; Angela about 10 minutes before you plan to leave so they can see you off in person. Leave the space as you found it: sweep the floor, wash dishes, damp towels on the porch.</div>
+          <div class="stop-tags">
+            <span class="tag">Checkout by 12PM</span>
+            <span class="tag">Text host before leaving</span>
+            <span class="tag">Sweep + wash dishes</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop sun">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">~1:00</div>
+        </div>
+        <div class="stop-card" style="background:#fef8ee; border-color:rgba(245,166,35,0.2);">
+          <span class="event-badge">&#128717; Farmers Market</span>
+          <div class="stop-name">Brantford Farmers' Market</div>
+          <div class="stop-location">Brantford &middot; Open Saturdays 7AM–2PM year-round &middot; ~1 hr from cabin</div>
+          <div class="stop-detail">One of Ontario's oldest markets — established in 1848 and still running every Saturday. 49 indoor stalls plus 15–20 outdoor vendors in summer: fresh produce, meats, deli, dairy, baked goods, prepared food, crafts. It's on your route home and it's the real thing — not a curated artisan market, just a proper working community market. Arrive before 2 PM closing.</div>
+          <div class="stop-tags">
+            <span class="tag">Est. 1848</span>
+            <span class="tag">Sat 7AM–2PM</span>
+            <span class="tag">49+ stalls</span>
+            <span class="tag">On route home</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop sun">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">2:30</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#127751;</span>
+          <div class="stop-name">Paris, Ontario — Optional Stop</div>
+          <div class="stop-location">Paris, ON &middot; 15 min east of Brantford &middot; On Hwy 403</div>
+          <div class="stop-detail">One of Ontario's most underrated small towns — cobblestone streets, stone buildings on the Grand River, good independent coffee shops and lunch spots. 30–45 minutes here is effortless. The downtown is compact and walkable, right on the river. Then it's a straight 90-minute run back to Toronto on the 403.</div>
+          <div class="stop-tags">
+            <span class="tag">Optional 45 min</span>
+            <span class="tag">Grand River</span>
+            <span class="tag">Stone architecture</span>
+            <span class="tag">Good coffee</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop sun">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-time">~3:30</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#127961;</span>
+          <div class="stop-name">Drive Back to Toronto</div>
+          <div class="stop-location">Paris / Brantford &rarr; Toronto &middot; ~90 min via Hwy 403 E</div>
+          <div class="stop-detail">Straight shot east on the 403. Back in Toronto by 5 PM, well clear of Sunday evening traffic. Windows down, playlist up.</div>
+          <div class="stop-tags">
+            <span class="tag">Hwy 403 E</span>
+            <span class="tag">~90 min</span>
+            <span class="tag">Home by 5PM</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ TIPS ══ -->
+  <section class="tips-section">
+    <div class="tip-card">
+      <span class="tip-icon">&#127920;</span>
+      <div class="tip-title">What to Pack</div>
+      <div class="tip-text">Bring your own sheets (twin bunk above, double below) and towels — not provided without a fee. Bug spray is mandatory for Backus Woods in July. Water shoes for the rocky Lake Erie shore. Cash for firewood ($15/bundle). No glass bottles at the cabin.</div>
+    </div>
+    <div class="tip-card">
+      <span class="tip-icon">&#128678;</span>
+      <div class="tip-title">Kayak Rentals</div>
+      <div class="tip-text">Waveline Rentals at Turkey Point is on-site — no booking needed but July weekends can get busy, arrive early. Backup: Norfolk Kayak &amp; SUP Rentals (NKS) in Simcoe — call ahead. If all else fails, your own SUP on Turkey Point beach is perfect.</div>
+    </div>
+    <div class="tip-card">
+      <span class="tip-icon">&#128293;</span>
+      <div class="tip-title">Fire Pit Rules</div>
+      <div class="tip-text">The fire pit at the bunkie requires pre-arrangement with hosts Erik &amp; Angela and is subject to township fire regulations. Never toss a cigarette on the ground or in the outhouse. Quiet hours are 10PM–8AM — there are other campers nearby in the forest campground.</div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="itin-footer">
+    <div class="itin-footer-logo">Summer <span>Trips</span> 2026</div>
+    <div class="itin-footer-links">
+      <a href="short-trips.html">&#8592; All Trips</a>
+      <a href="itinerary.html">All Itineraries</a>
+      <a href="itinerary-wiarton.html">Wiarton</a>
+      <a href="itinerary-burks-falls.html">Burk's Falls</a>
+      <a href="https://www.airbnb.ca/rooms/610039857504941877?source_impression_id=p3_1780366940_P3yBvFLyGvlok0-C" target="_blank">Airbnb Listing</a>
+    </div>
+  </footer>
+
+  <script>
+    const cards = document.querySelectorAll('.stop-card');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateX(0)';
+        }
+      });
+    }, { threshold: 0.12 });
+    cards.forEach((c, i) => {
+      c.style.opacity = '0';
+      c.style.transform = 'translateX(24px)';
+      c.style.transition = `opacity 0.45s ${i * 0.05}s, transform 0.45s ${i * 0.05}s`;
+      obs.observe(c);
+    });
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>
