@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Burk's Falls Weekend · Jul 10–12 — Summer 2026</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/itinerary.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Booking bar ── */
+    .booking-bar {
+      background: var(--sky-dark);
+      color: rgba(255,255,255,0.75);
+      padding: 0.9rem 8%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem 2.5rem;
+      align-items: center;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+    .booking-item { display: flex; gap: 0.5rem; align-items: baseline; }
+    .bi-label {
+      font-size: 0.62rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.4);
+    }
+    .booking-bar a {
+      color: var(--sun);
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1px solid rgba(245,166,35,0.35);
+      transition: border-color 0.2s;
+    }
+    .booking-bar a:hover { border-color: var(--sun); }
+
+    /* ── Skeleton Lake feature ── */
+    .feature-section {
+      background: linear-gradient(135deg, #e0f4f0, #d0ecec);
+      padding: 5rem 8%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .feature-text { display: flex; flex-direction: column; gap: 1rem; }
+    .feature-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--green);
+    }
+    .feature-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 900;
+      line-height: 0.95;
+      color: #1a3830;
+    }
+    .feature-title em { font-style: italic; color: var(--green); display: block; }
+    .feature-desc {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: #3a5050;
+      max-width: 420px;
+    }
+    .feature-facts { display: flex; flex-direction: column; gap: 0.6rem; margin-top: 0.5rem; }
+    .feature-fact {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      font-size: 0.85rem;
+      color: #3a5050;
+      line-height: 1.55;
+    }
+    .feature-fact::before { content: '—'; color: var(--green); flex-shrink: 0; font-weight: 600; }
+    .feature-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cliff-svg { width: 100%; max-width: 380px; border-radius: 12px; overflow: hidden; }
+
+    /* ── Events section ── */
+    .events-section {
+      background: var(--sand);
+      padding: 4rem 8%;
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+    .events-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 900;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+    .events-sub {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 1rem;
+    }
+    .event-block {
+      background: var(--white);
+      border: 1px solid rgba(0,0,0,0.07);
+      border-left: 4px solid var(--green);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.4rem 1.4rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .event-block:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.09); }
+    .event-day {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 0.4rem;
+    }
+    .event-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+    .event-where {
+      font-size: 0.68rem;
+      font-weight: 500;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+    .event-detail { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── Event badge on stop cards ── */
+    .event-badge {
+      display: inline-block;
+      background: var(--green);
+      color: var(--white);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 0.6rem;
+    }
+
+    /* ── Canoe water animation (Saturday visual) ── */
+    .canoe-scene {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      position: relative;
+    }
+    .canoe-water {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 50%; overflow: hidden;
+    }
+    .cwave {
+      position: absolute; bottom: 0; width: 200%; left: -50%;
+      background: rgba(42,122,106,0.18);
+      border-radius: 40% 60% 0 0;
+      animation: cwave 5s ease-in-out infinite;
+    }
+    .cwave:nth-child(1) { height: 80px; }
+    .cwave:nth-child(2) { height: 55px; animation-delay: -2.5s; opacity: 0.6; }
+    @keyframes cwave {
+      0%,100% { transform: translateX(0); }
+      50%      { transform: translateX(-8%); }
+    }
+
+    /* ── Hero ripple animation ── */
+    .hero-ripples {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 35%;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .ripple {
+      position: absolute; bottom: 0;
+      width: 200%; left: -50%;
+      background: rgba(13,74,122,0.12);
+      border-radius: 40% 60% 0 0;
+      animation: rippleMove 8s ease-in-out infinite;
+    }
+    .ripple:nth-child(1) { height: 60px; animation-duration: 7s; }
+    .ripple:nth-child(2) { height: 45px; animation-duration: 9s; animation-delay: -3s; opacity: 0.6; }
+    .ripple:nth-child(3) { height: 30px; animation-duration: 11s; animation-delay: -6s; opacity: 0.4; }
+    @keyframes rippleMove {
+      0%,100% { transform: translateX(0) scaleX(1); }
+      50%      { transform: translateX(5%) scaleX(1.05); }
+    }
+
+    @media (max-width: 700px) {
+      .feature-section { grid-template-columns: 1fr; gap: 2rem; }
+      .booking-bar { padding: 0.9rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="back-btn" href="short-trips.html">&#8592; All Trips</a>
+
+  <!-- ══ HERO ══ -->
+  <section class="itin-hero" style="background:none;">
+    <div class="itin-hero-bg" style="background: linear-gradient(155deg, #0d4a30 0%, #1a6b4a 45%, #1a6baa 100%);"></div>
+
+    <div class="hero-ripples">
+      <div class="ripple"></div>
+      <div class="ripple"></div>
+      <div class="ripple"></div>
+    </div>
+
+    <div class="itin-trees">
+      <div class="itin-tree tb"></div>
+      <div class="itin-tree ta"></div>
+      <div class="itin-tree tc"></div>
+      <div class="itin-tree tb"></div>
+      <div class="itin-tree ta"></div>
+      <div class="itin-tree tc"></div>
+      <div class="itin-tree tb"></div>
+      <div class="itin-tree ta"></div>
+      <div class="itin-tree tc"></div>
+      <div class="itin-tree tb"></div>
+      <div class="itin-tree ta"></div>
+      <div class="itin-tree tc"></div>
+      <div class="itin-tree tb"></div>
+      <div class="itin-tree ta"></div>
+    </div>
+
+    <div class="itin-hero-content">
+      <div class="itin-eyebrow">Ontario &middot; July 10–12, 2026</div>
+      <h1 class="itin-hero-title">
+        Burk's Falls
+        <em>Weekend</em>
+      </h1>
+      <p class="itin-hero-sub">Algonquin ridgelines, a meteor-crater cliff jump, campfire BBQ under the stars, and a Georgian Bay SUP session.</p>
+      <div class="itin-stats">
+        <div class="itin-stat"><span class="num">3</span><span class="lbl">Days</span></div>
+        <div class="itin-stat"><span class="num">~2h</span><span class="lbl">From Toronto</span></div>
+        <div class="itin-stat"><span class="num">2</span><span class="lbl">Hikes</span></div>
+        <div class="itin-stat"><span class="num">1</span><span class="lbl">SUP Session</span></div>
+      </div>
+    </div>
+
+    <div class="itin-scroll-hint">
+      <span>Scroll</span>
+      <div class="itin-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ══ BOOKING BAR ══ -->
+  <div class="booking-bar">
+    <div class="booking-item"><span class="bi-label">Host</span><span>Oksana &amp; Vadim</span></div>
+    <div class="booking-item"><span class="bi-label">Address</span><span>82 Sterling Creek Rd, Burk's Falls, ON P0A 1C0</span></div>
+    <div class="booking-item"><span class="bi-label">Guests</span><span>2 max &middot; No pets &middot; No smoking</span></div>
+    <div class="booking-item"><span class="bi-label">Cancel</span><span>Free before Jul 5 4PM</span></div>
+    <div class="booking-item"><span class="bi-label">Cost</span><span>$301.48 CAD</span></div>
+    <div class="booking-item"><a href="https://www.airbnb.ca/rooms/1075333075058694550" target="_blank">View Listing &#8599;</a></div>
+  </div>
+
+  <!-- ══ ROUTE STRIP ══ -->
+  <div class="itin-route">
+    <div class="route-stop"><div class="route-dot-wrap"><div class="route-dot start"></div><div class="route-label">Toronto</div></div></div>
+    <div class="route-line"></div>
+    <div class="route-stop"><div class="route-dot-wrap"><div class="route-dot"></div><div class="route-label">Barrie Coffee</div></div></div>
+    <div class="route-line"></div>
+    <div class="route-stop"><div class="route-dot-wrap"><div class="route-dot"></div><div class="route-label">Algonquin Park</div></div></div>
+    <div class="route-line"></div>
+    <div class="route-stop"><div class="route-dot-wrap"><div class="route-dot"></div><div class="route-label">Burk's Falls Cabin</div></div></div>
+    <div class="route-line"></div>
+    <div class="route-stop"><div class="route-dot-wrap"><div class="route-dot"></div><div class="route-label">Huntsville Market</div></div></div>
+    <div class="route-line"></div>
+    <div class="route-stop"><div class="route-dot-wrap"><div class="route-dot"></div><div class="route-label">Skeleton Lake</div></div></div>
+    <div class="route-line"></div>
+    <div class="route-stop"><div class="route-dot-wrap"><div class="route-dot"></div><div class="route-label">Cabin BBQ Night</div></div></div>
+    <div class="route-line"></div>
+    <div class="route-stop"><div class="route-dot-wrap"><div class="route-dot"></div><div class="route-label">Parry Sound Market</div></div></div>
+    <div class="route-line"></div>
+    <div class="route-stop"><div class="route-dot-wrap"><div class="route-dot"></div><div class="route-label">Georgian Bay SUP</div></div></div>
+    <div class="route-line"></div>
+    <div class="route-stop"><div class="route-dot-wrap"><div class="route-dot end"></div><div class="route-label">Toronto</div></div></div>
+  </div>
+
+  <!-- ══ FRIDAY ══ -->
+  <section class="day-section">
+    <div class="day-header day-fri-bg">
+      <div class="day-header-text">
+        <div class="day-label">Day 01 &middot; Friday</div>
+        <h2 class="day-title">Early Start,<br><em>Algonquin First</em></h2>
+        <p class="day-desc">Leave Toronto at 6 AM before the city wakes up. Hit Algonquin by mid-morning for a full trail day before checking in to the cabin.</p>
+        <div class="day-bg-num">FRI</div>
+      </div>
+      <div class="day-visual day-fri-visual">&#127794;</div>
+    </div>
+
+    <div class="stops-list">
+
+      <div class="stop fri">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">6:00</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#128663;</span>
+          <div class="stop-name">Depart Toronto</div>
+          <div class="stop-location">Toronto &rarr; Algonquin West Gate &middot; ~2.5 hrs</div>
+          <div class="stop-detail">Roads are clear at 6 AM. No 400-series traffic, no construction crawl. Pack a thermos and drive straight through, or stop in Barrie (~45 min) for coffee and gas. You're at Algonquin's west gate by 8:30 AM — early enough to beat the parking crunch.</div>
+          <div class="stop-tags">
+            <span class="tag">Hwy 400 N &rarr; Hwy 11</span>
+            <span class="tag">~2.5 hrs</span>
+            <span class="tag">Barrie pit stop optional</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop fri">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">8:30</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#128663;</span>
+          <div class="stop-name">Algonquin West Gate</div>
+          <div class="stop-location">Hwy 60, Algonquin Provincial Park</div>
+          <div class="stop-detail">Buy your day pass at the west gate (~$20/vehicle — buy online in advance on summer weekends, they sell out). The Hwy 60 corridor gives you access to multiple trails without driving deep into the park. Pick up a trail map at the visitor centre.</div>
+          <div class="stop-tags">
+            <span class="tag">Day pass ~$20</span>
+            <span class="tag">Buy online</span>
+            <span class="tag">Trail map at gate</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop fri">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">9:00</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#9968;&#65039;</span>
+          <div class="stop-name">Centennial Ridges Trail</div>
+          <div class="stop-location">Algonquin Provincial Park &middot; 10 km loop &middot; 4–5 hrs</div>
+          <div class="stop-detail">The best trail in Algonquin. Exposed Canadian Shield ridgeline, panoramic views over a sea of boreal forest, and a summit that earns its sweat. The 10 km loop takes 4–5 hours at a comfortable pace — bring water, snacks, and bug spray. This is the one trail in Algonquin that requires no asterisk.</div>
+          <div class="stop-tags">
+            <span class="tag">10 km loop</span>
+            <span class="tag">4–5 hrs</span>
+            <span class="tag">Exposed ridgeline</span>
+            <span class="tag">Best views in Algonquin</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop fri">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">~2:00</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#127944;</span>
+          <div class="stop-name">Swim at Tea Lake or Canoe Lake</div>
+          <div class="stop-location">Algonquin Hwy 60 Corridor</div>
+          <div class="stop-detail">Post-hike swim in Shield lake water — cold, clear, and surrounded by white pines. Tea Lake and Canoe Lake are both accessible off Hwy 60 with day-use areas. 30–45 minutes here before heading to the cabin.</div>
+          <div class="stop-tags">
+            <span class="tag">Post-hike swim</span>
+            <span class="tag">Day use</span>
+            <span class="tag">Bring towel</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop fri">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-time">~4:00</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#127957;</span>
+          <div class="stop-name">Check-in &middot; Burk's Falls Cabin</div>
+          <div class="stop-location">82 Sterling Creek Rd, Burk's Falls &middot; Check-in after 4PM</div>
+          <div class="stop-detail">Arrive at 4 PM on the dot — host greets you in person. Sterling Creek runs alongside the property. Unpack, fire up the BBQ, and let the day settle. You've earned a quiet evening by the water after Algonquin.</div>
+          <div class="stop-tags">
+            <span class="tag">Check-in after 4PM</span>
+            <span class="tag">Host greeting</span>
+            <span class="tag">BBQ dinner</span>
+            <span class="tag">River access</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="scenic-break scenic-break-fri">
+    <div class="scenic-quote">"Algonquin's Centennial Ridges trail follows 10 km of exposed Canadian Shield — one of the highest points accessible by trail in the park."</div>
+  </div>
+
+  <!-- ══ SKELETON LAKE FEATURE ══ -->
+  <section class="feature-section">
+    <div class="feature-text">
+      <div class="feature-eyebrow">Saturday Highlight &middot; Side Trip</div>
+      <div class="feature-title">Skeleton<br><em>Lake</em></div>
+      <p class="feature-desc">Formed by a meteor strike 800 million years ago, Skeleton Lake is one of Muskoka's most dramatic swimming spots. Anderson's Island has a cliff-jumping area on its south-east side with overhanging granite dropping into crystal-clear, deep water.</p>
+      <div class="feature-facts">
+        <div class="feature-fact">Located ~17 km west of Huntsville on Hwy 141 — 30 min from the cabin</div>
+        <div class="feature-fact">Anderson's Island is public-use — reach it by kayak or canoe from Skeleton Lake Marina boat launch</div>
+        <div class="feature-fact">Lake depth up to 65 metres — meteor crater origin, crystal-clear water</div>
+        <div class="feature-fact">Devil's Face Cliff visible on the shoreline from the water</div>
+        <div class="feature-fact">Kayak rentals available in Huntsville — book ahead for Saturday</div>
+      </div>
+    </div>
+    <div class="feature-visual">
+      <svg class="cliff-svg" viewBox="0 0 380 320" xmlns="http://www.w3.org/2000/svg">
+        <rect width="380" height="320" fill="#d4eef5"/>
+        <circle cx="300" cy="55" r="32" fill="#f5d060" opacity="0.65"/>
+        <ellipse cx="60" cy="180" rx="25" ry="40" fill="#2d8a4e" opacity="0.35"/>
+        <ellipse cx="90" cy="170" rx="20" ry="50" fill="#1a6b3a" opacity="0.35"/>
+        <ellipse cx="310" cy="175" rx="22" ry="38" fill="#2d8a4e" opacity="0.35"/>
+        <ellipse cx="340" cy="185" rx="18" ry="30" fill="#1a6b3a" opacity="0.35"/>
+        <rect x="0" y="200" width="380" height="120" fill="#3a9ab8" opacity="0.7"/>
+        <ellipse cx="100" cy="220" rx="40" ry="4" fill="#6ac8d8" opacity="0.5"/>
+        <ellipse cx="240" cy="240" rx="55" ry="5" fill="#6ac8d8" opacity="0.4"/>
+        <ellipse cx="160" cy="260" rx="35" ry="3" fill="#6ac8d8" opacity="0.3"/>
+        <polygon points="140,40 210,40 240,200 110,200" fill="#8a9a90"/>
+        <polygon points="140,40 180,40 200,200 110,200" fill="#9aaa98"/>
+        <polygon points="150,120 230,105 235,140 155,155" fill="#7a8a80"/>
+        <polygon points="155,120 230,105 228,122 158,135" fill="#6a7870"/>
+        <line x1="160" y1="60" x2="155" y2="200" stroke="#7a8a80" stroke-width="1.5" opacity="0.4"/>
+        <line x1="180" y1="50" x2="175" y2="200" stroke="#7a8a80" stroke-width="1" opacity="0.3"/>
+        <polygon points="148,40 155,15 162,40" fill="#1a5020"/>
+        <polygon points="165,42 172,18 179,42" fill="#244828"/>
+        <polygon points="180,38 188,10 196,38" fill="#1a5020"/>
+        <circle cx="222" cy="98" r="6" fill="#f5a623"/>
+        <line x1="222" y1="104" x2="222" y2="118" stroke="#f5a623" stroke-width="2.5"/>
+        <line x1="222" y1="108" x2="215" y2="114" stroke="#f5a623" stroke-width="2"/>
+        <line x1="222" y1="108" x2="229" y2="112" stroke="#f5a623" stroke-width="2"/>
+        <line x1="222" y1="118" x2="216" y2="128" stroke="#f5a623" stroke-width="2"/>
+        <line x1="222" y1="118" x2="228" y2="128" stroke="#f5a623" stroke-width="2"/>
+        <ellipse cx="190" cy="205" rx="18" ry="6" fill="#88d0e0" opacity="0.7"/>
+        <text x="248" y="132" font-family="monospace" font-size="9" fill="#1a3830" opacity="0.75">Anderson's</text>
+        <text x="248" y="145" font-family="monospace" font-size="9" fill="#1a3830" opacity="0.75">Island Cliff</text>
+        <line x1="246" y1="128" x2="232" y2="112" stroke="#1a3830" stroke-width="1" opacity="0.4" stroke-dasharray="3,2"/>
+        <text x="282" y="255" font-family="monospace" font-size="8" fill="#fff" opacity="0.6">depth: 65m</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ══ SATURDAY ══ -->
+  <section class="day-section">
+    <div class="day-header day-sat-bg">
+      <div class="day-visual day-sat-visual" style="position:relative;">
+        <div class="canoe-scene">
+          <div class="canoe-water">
+            <div class="cwave"></div>
+            <div class="cwave"></div>
+          </div>
+          <span style="position:relative;z-index:1;font-size:5rem;">&#128678;</span>
+        </div>
+      </div>
+      <div class="day-header-text">
+        <div class="day-label">Day 02 &middot; Saturday</div>
+        <h2 class="day-title">Markets, Cliffs<br><em>&amp; Live Music</em></h2>
+        <p class="day-desc">Huntsville farmers market in the morning, Skeleton Lake cliff jump in the afternoon, then back to the cabin for a proper BBQ dinner and fire under the stars.</p>
+        <div class="day-bg-num">SAT</div>
+      </div>
+    </div>
+
+    <div class="stops-list">
+
+      <div class="stop sat">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">7:30</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#128293;</span>
+          <div class="stop-name">Breakfast at the Cabin</div>
+          <div class="stop-location">82 Sterling Creek Rd</div>
+          <div class="stop-detail">Slow morning. Eggs and coffee by the creek before a full day. Pack swim gear, dry bag, and pick up BBQ supplies either at the cabin or on the way through Huntsville.</div>
+          <div class="stop-tags">
+            <span class="tag">Slow start</span>
+            <span class="tag">Pack swim gear</span>
+            <span class="tag">BBQ prep list</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop sat">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">9:00</div>
+        </div>
+        <div class="stop-card" style="background:#f0faf6; border-color:rgba(45,138,78,0.2);">
+          <span class="event-badge">&#128717; Farmers Market</span>
+          <div class="stop-name">Huntsville Farmers' Market</div>
+          <div class="stop-location">407 Ravenscliffe Rd, Huntsville &middot; 9AM–2PM &middot; ~40 min from cabin</div>
+          <div class="stop-detail">Runs every Saturday May through October. Local produce, baked goods, maple syrup, artisan vendors. Pick up lunch supplies and anything you need for the cabin. Combine with a walk on Huntsville's Main Street.</div>
+          <div class="stop-tags">
+            <span class="tag">9AM–2PM</span>
+            <span class="tag">Every Saturday</span>
+            <span class="tag">Local food</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop sat">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">11:30</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#9749;</span>
+          <div class="stop-name">Huntsville Main Street</div>
+          <div class="stop-location">Main Street East, Huntsville</div>
+          <div class="stop-detail">Walk Main Street after the market. Good independent coffee shops and local spots for a quick lunch. Pick up any BBQ ingredients, wine, or extras for tonight's dinner at the cabin.</div>
+          <div class="stop-tags">
+            <span class="tag">Coffee + lunch</span>
+            <span class="tag">Stock up for cabin</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop sat">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">1:30</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#129695;</span>
+          <div class="stop-name">Skeleton Lake — Anderson's Island</div>
+          <div class="stop-location">Hwy 141, ~17 km west of Huntsville &middot; ~30 min from Huntsville</div>
+          <div class="stop-detail">Public boat launch at Skeleton Lake Marina on Hwy 141. Rent or bring a kayak to reach Anderson's Island — the cliff-jumping area is on the south-east side of the island. Overhanging granite, deep meteor-crater water, crystal visibility. Allow 2–3 hrs on the water.</div>
+          <div class="stop-tags">
+            <span class="tag">Kayak to island</span>
+            <span class="tag">Granite overhang</span>
+            <span class="tag">65m deep</span>
+            <span class="tag">2–3 hrs</span>
+            <span class="tag">Jump at own risk</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop sat">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-time">~6:00</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#128293;</span>
+          <div class="stop-name">Campfire BBQ Night</div>
+          <div class="stop-location">82 Sterling Creek Rd, Burk's Falls Cabin</div>
+          <div class="stop-detail">Back at the cabin by 6 PM. Light the fire, crack something cold, and take your time with the BBQ. Sterling Creek in the background, smoke in the air, music on low. No reservation needed, no driving, nowhere else to be. Stay up as long as the fire lasts.</div>
+          <div class="stop-tags">
+            <span class="tag">Light fire ~6PM</span>
+            <span class="tag">BBQ dinner</span>
+            <span class="tag">Music + creek</span>
+            <span class="tag">No rush</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="scenic-break scenic-break-sat">
+    <div class="scenic-quote">"Skeleton Lake formed from a meteor impact 800 million years ago — one of only a handful of confirmed impact lakes in Ontario."</div>
+  </div>
+
+  <!-- ══ EVENTS SECTION ══ -->
+  <section class="events-section">
+    <div class="events-heading">Weekend Events</div>
+    <div class="events-sub">Huntsville Festival of the Arts &middot; July 10–12, 2026</div>
+    <div class="events-grid">
+      <div class="event-block">
+        <div class="event-day">Friday Jul 10 &middot; All Day</div>
+        <div class="event-name">HfA Visual Arts Program</div>
+        <div class="event-where">Sandhill Nursery, 1686 Aspdin Rd &middot; 8:30 AM</div>
+        <div class="event-detail">Runs all week as part of the summer festival. Worth a look if you're passing through Huntsville Friday morning on the way to Algonquin.</div>
+      </div>
+      <div class="event-block">
+        <div class="event-day">Saturday Jul 11 &middot; 9AM–2PM</div>
+        <div class="event-name">Huntsville Farmers' Market</div>
+        <div class="event-where">407 Ravenscliffe Rd, Huntsville</div>
+        <div class="event-detail">Weekly Saturday market running May to October. Local produce, artisan goods, baked treats, maple syrup. Combine with a Main Street walk.</div>
+      </div>
+      <div class="event-block">
+        <div class="event-day">Saturday Jul 11 &middot; 9AM–2PM</div>
+        <div class="event-name">Parry Sound Summer Market</div>
+        <div class="event-where">Parry Sound Market Square &middot; ~40 min west of Burk's Falls</div>
+        <div class="event-detail">Runs June 24 to August 26. Smaller than Huntsville but right on Georgian Bay — worth the detour if you want to see the water and browse local vendors.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SUNDAY ══ -->
+  <section class="day-section">
+    <div class="day-header day-sun-bg">
+      <div class="day-header-text">
+        <div class="day-label">Day 03 &middot; Sunday</div>
+        <h2 class="day-title">River Walk,<br><em>SUP &amp; Drive Home</em></h2>
+        <p class="day-desc">Early morning hike on the Georgian Bay waterfront trail, Parry Sound farmers market, stand-up paddleboard on Georgian Bay, then the drive home.</p>
+        <div class="day-bg-num">SUN</div>
+      </div>
+      <div class="day-visual day-sun-visual">&#127940;</div>
+    </div>
+
+    <div class="stops-list">
+
+      <div class="stop sun">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">7:00</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#127749;</span>
+          <div class="stop-name">Rotary Waterfront Trail</div>
+          <div class="stop-location">Parry Sound &middot; Georgian Bay &middot; 6 km &middot; ~1.5 hrs</div>
+          <div class="stop-detail">Drive to Parry Sound (~40 min) while the morning is still quiet. The Rotary &amp; Algonquin Regiment Fitness Trail hugs the Georgian Bay shoreline for 6 km along pink granite outcroppings — one of the best easy waterfront walks in the region. Views of the 30,000 Islands, calm water, no crowds at 7 AM. Done by 9:00 AM with a proper appetite.</div>
+          <div class="stop-tags">
+            <span class="tag">6 km</span>
+            <span class="tag">~1.5 hrs</span>
+            <span class="tag">Georgian Bay views</span>
+            <span class="tag">Pink granite path</span>
+            <span class="tag">No elevation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop sun">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">9:00</div>
+        </div>
+        <div class="stop-card" style="background:#fef8ee; border-color:rgba(245,166,35,0.2);">
+          <span class="event-badge" style="background:var(--sun);">&#128717; Farmers Market</span>
+          <div class="stop-name">Parry Sound Summer Market</div>
+          <div class="stop-location">Parry Sound Market Square &middot; 9AM–2PM &middot; Runs Jun 24–Aug 26</div>
+          <div class="stop-detail">Right after the hike — the market opens at 9 AM and you're already in Parry Sound. Local farmers, artisan vendors, baked goods, and Georgian Bay produce. Grab breakfast at the market and browse at a slow Sunday pace.</div>
+          <div class="stop-tags">
+            <span class="tag">9AM–2PM</span>
+            <span class="tag">Georgian Bay waterfront</span>
+            <span class="tag">Breakfast at market</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop sun">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">10:30</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#127940;</span>
+          <div class="stop-name">Stand-Up Paddleboard — Georgian Bay</div>
+          <div class="stop-location">Killbear Provincial Park or Parry Sound Harbour &middot; SUP rentals available</div>
+          <div class="stop-detail">Georgian Bay on a calm Sunday morning is SUP perfection — glassy water, 30,000 Islands in the distance, pink granite shoreline. Rentals available at Killbear Park Mall (705-771-9646) or through White Squall Paddling Centre north of Parry Sound. Book ahead. Allow 1.5–2 hrs on the water.</div>
+          <div class="stop-tags">
+            <span class="tag">Book ahead</span>
+            <span class="tag">Killbear Park rentals</span>
+            <span class="tag">White Squall: 705-203-2955</span>
+            <span class="tag">1.5–2 hrs</span>
+            <span class="tag">30,000 Islands</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop sun">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-time">1:00</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#127961;</span>
+          <div class="stop-name">Drive Back to Toronto</div>
+          <div class="stop-location">Parry Sound &rarr; Toronto &middot; ~2.5 hrs via Hwy 400</div>
+          <div class="stop-detail">Hwy 400 south from Parry Sound — a straight shot. Stop in Barrie for coffee or lunch if you need a break. Back in Toronto by 4 PM ahead of Sunday evening traffic.</div>
+          <div class="stop-tags">
+            <span class="tag">Hwy 400 S</span>
+            <span class="tag">~2.5 hrs</span>
+            <span class="tag">Home by 4PM</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ TIPS ══ -->
+  <section class="tips-section">
+    <div class="tip-card">
+      <span class="tip-icon">&#127920;</span>
+      <div class="tip-title">What to Pack</div>
+      <div class="tip-text">Hiking boots for Algonquin, swim gear + dry bag for Skeleton Lake, bug spray (July in Muskoka is serious), a dry layer for the evening, and water shoes for the rocky cliff area. No pets allowed at the cabin.</div>
+    </div>
+    <div class="tip-card">
+      <span class="tip-icon">&#127940;</span>
+      <div class="tip-title">Book SUP in Advance</div>
+      <div class="tip-text">White Squall Paddling Centre (north of Parry Sound, 705-203-2955) or Killbear Park Mall (705-771-9646) both rent SUP boards. July Sundays fill up — call ahead. White Squall requires 2-day minimum; Killbear is 24-hr rental.</div>
+    </div>
+    <div class="tip-card">
+      <span class="tip-icon">&#128678;</span>
+      <div class="tip-title">Skeleton Lake Logistics</div>
+      <div class="tip-text">Anderson's Island is accessible only by water. Kayak rentals are available in Huntsville — book ahead for Saturday. The public boat launch is at Skeleton Lake Marina on Hwy 141. Cell service is limited around the lake.</div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="itin-footer">
+    <div class="itin-footer-logo">Summer <span>Trips</span> 2026</div>
+    <div class="itin-footer-links">
+      <a href="short-trips.html">&#8592; All Trips</a>
+      <a href="itinerary.html">All Itineraries</a>
+      <a href="itinerary-wiarton.html">Wiarton Weekend</a>
+      <a href="https://www.airbnb.ca/rooms/1075333075058694550" target="_blank">Airbnb Listing</a>
+      <a href="https://huntsvillefestival.ca" target="_blank">HfA Tickets</a>
+    </div>
+  </footer>
+
+  <script>
+    const cards = document.querySelectorAll('.stop-card');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateX(0)';
+        }
+      });
+    }, { threshold: 0.12 });
+    cards.forEach((c, i) => {
+      c.style.opacity = '0';
+      c.style.transform = 'translateX(24px)';
+      c.style.transition = `opacity 0.45s ${i * 0.05}s, transform 0.45s ${i * 0.05}s`;
+      obs.observe(c);
+    });
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>
