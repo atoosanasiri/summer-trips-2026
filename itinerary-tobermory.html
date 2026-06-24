@@ -90,12 +90,6 @@
       font-size: 0.9rem;
       color: var(--text);
     }
-    .trail-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.4rem 0 0.6rem;
-    }
     .trail-option p {
       font-size: 0.82rem;
       color: var(--muted);
@@ -172,7 +166,7 @@
           <span class="lbl">From Toronto</span>
         </div>
         <div class="itin-stat">
-          <span class="num">3</span>
+          <span class="num">4+</span>
           <span class="lbl">Hikes</span>
         </div>
         <div class="itin-stat">
@@ -244,6 +238,13 @@
     <div class="route-stop">
       <div class="route-dot-wrap">
         <div class="route-dot"></div>
+        <div class="route-label">Burnt Point / Little Dunks</div>
+      </div>
+    </div>
+    <div class="route-line"></div>
+    <div class="route-stop">
+      <div class="route-dot-wrap">
+        <div class="route-dot"></div>
         <div class="route-label">Tobermory</div>
       </div>
     </div>
@@ -290,7 +291,7 @@
       <div class="day-header-text">
         <div class="day-label">Day 01 &middot; Friday</div>
         <h2 class="day-title">Drive North,<br><em>Breakfast on the Hills</em></h2>
-        <p class="day-desc">Leave at 8 AM and beat the traffic north. Hit the trail by 10 and eat breakfast with a view. Then check in, swim, fish &amp; chips in Tobermory, and a proper campfire night.</p>
+        <p class="day-desc">Leave at 8 AM. Trail by 10. Swim in the afternoon. Catch the golden hour at Burnt Point. Then fish &amp; chips in Tobermory before a campfire night at the cabin.</p>
         <div class="day-bg-num">FRI</div>
       </div>
       <div class="day-visual day-fri-visual">
@@ -316,7 +317,7 @@
           <span class="stop-icon">&#128663;</span>
           <div class="stop-name">Depart Toronto</div>
           <div class="stop-location">Toronto &rarr; Bruce Peninsula &middot; ~2.5 hrs</div>
-          <div class="stop-detail">Early start &mdash; wheels rolling by 8 AM to beat Friday traffic on Hwy 10 north. Pack the cooler with hike snacks and breakfast for the trail. The city dissolves fast once you're past Barrie; by the time you hit Owen Sound the air already smells different.</div>
+          <div class="stop-detail">Early start &mdash; wheels rolling by 8 AM to beat Friday traffic on Hwy 10 north. Pack the cooler with hike snacks and breakfast for the trail. The city dissolves fast once you&rsquo;re past Barrie; by the time you hit Owen Sound the air already smells different.</div>
           <div class="stop-tags">
             <span class="tag">Highway 10 N</span>
             <span class="tag">8 AM departure</span>
@@ -333,9 +334,9 @@
         </div>
         <div class="stop-card">
           <span class="stop-icon">&#9968;&#65039;</span>
-          <div class="stop-name">Morning Hike &mdash; Lion's Head or Blue Mountain</div>
+          <div class="stop-name">Morning Hike &mdash; Lion&rsquo;s Head or Blue Mountain</div>
           <div class="stop-location">Bruce Peninsula &middot; Choose your trail</div>
-          <div class="stop-detail"><strong>Option A &mdash; Lion's Head Trail (~7 km loop, 2.5&ndash;3 hrs):</strong> Dramatic limestone cliffs dropping straight into Georgian Bay. Exposed ridgeline, panoramic views, some scrambling. One of the finest lookouts in Ontario &mdash; worth every step.<br><br><strong>Option B &mdash; Blue Mountain, Collingwood (~varies):</strong> A slightly earlier stop on the way north with ski-hill trails and Georgian Bay views. Good choice if you want a shorter hike before a long drive day.<br><br>Either way &mdash; eat breakfast up on the trail with a view. Sandwich, granola, whatever you packed. That's the plan.</div>
+          <div class="stop-detail"><strong>Option A &mdash; Lion&rsquo;s Head Trail (~7 km loop, 2.5&ndash;3 hrs):</strong> Dramatic limestone cliffs dropping straight into Georgian Bay. Exposed ridgeline, panoramic views, some scrambling. One of the finest lookouts in Ontario.<br><br><strong>Option B &mdash; Blue Mountain, Collingwood (~varies):</strong> A slightly earlier stop on the way north. Good if you want a shorter hike before a full day ahead.<br><br>Either way &mdash; eat breakfast up on the trail with a view. That&rsquo;s the plan.</div>
           <div class="stop-tags">
             <span class="tag">Pack breakfast</span>
             <span class="tag">Eat with a view</span>
@@ -355,7 +356,7 @@
           <span class="stop-icon">&#127957;</span>
           <div class="stop-name">Check-in &middot; Stokes Bay Cabin</div>
           <div class="stop-location">17 Government Dock Road, Northern Bruce Peninsula &middot; Hosted by Cathy</div>
-          <div class="stop-detail">Check in after 3 PM. Drop bags, shower off the trail, rest a bit. Cathy's cabin sits on the Bruce Peninsula &mdash; your base for tonight. No pets, quiet hours at 11 PM. Get your bearings, then you're heading back out almost immediately for the afternoon.</div>
+          <div class="stop-detail">Check in after 3 PM. Drop bags, freshen up, rest briefly. No pets, quiet hours at 11 PM. You&rsquo;re heading back out almost immediately &mdash; afternoon is fully packed.</div>
           <div class="stop-tags">
             <span class="tag">Check-in after 3PM</span>
             <span class="tag">No pets</span>
@@ -374,7 +375,7 @@
           <span class="stop-icon">&#127944;</span>
           <div class="stop-name">Swim &amp; Paddleboard &middot; Black Creek Provincial Park</div>
           <div class="stop-location">Black Creek Provincial Park, Bruce Peninsula</div>
-          <div class="stop-detail">A sandy Georgian Bay beach &mdash; one of the best on the peninsula. After the morning hike and the long drive, get in the water. The paddleboard comes out here. Calm, clear, and not too crowded on a Friday afternoon. Stay as long as you like &mdash; Tobermory is 20&ndash;30 minutes north.</div>
+          <div class="stop-detail">A sandy Georgian Bay beach &mdash; one of the best on the peninsula. After the morning hike, get in the water and get the paddleboard out. Calm, clear, and not too crowded on a Friday afternoon. About 1.5 hrs here, then you&rsquo;re heading north to Tobermory.</div>
           <div class="stop-tags">
             <span class="tag">Sandy beach</span>
             <span class="tag">Paddleboarding</span>
@@ -391,10 +392,35 @@
           <div class="stop-time">~6:30</div>
         </div>
         <div class="stop-card">
+          <span class="stop-icon">&#127755;</span>
+          <div class="stop-name">Burnt Point Loop &amp; Little Dunks Lookout</div>
+          <div class="stop-location">Bruce Peninsula National Park &middot; Near Tobermory NP Visitor Centre</div>
+          <div class="stop-detail">The golden hour stop. Burnt Point Loop is a 5.3 km moderate trail through forest to multiple cliff-edge viewpoints over Georgian Bay &mdash; including a lookout tower at the start with a full 360&deg; panorama of Tobermory and the bay. The loop also passes Little Dunks Bay Lookout, a short spur to a viewing platform with Parks Canada Red Chairs right over the turquoise water &mdash; one of the best sunset perches on the peninsula. Sunset in late June is around 9 PM, so the light during this hike is extraordinary.<br><br>If energy is low, skip the full loop and just do the <strong>Little Dunks Lookout</strong> alone &mdash; 800 m return, 25 minutes, almost flat, with the same jaw-dropping view.</div>
+          <div class="stop-tags">
+            <span class="tag">5.3 km loop &middot; ~1h20 full</span>
+            <span class="tag">OR 800 m &middot; 25 min quick</span>
+            <span class="tag">Lookout tower</span>
+            <span class="tag">Golden hour</span>
+            <span class="tag">Sunset ~9PM</span>
+          </div>
+          <div style="margin-top:0.75rem;display:flex;flex-wrap:wrap;gap:0.5rem;">
+            <span class="trail-warn">&#127981; NP entry $7.90/adult &middot; park at Visitor Centre</span>
+            <span class="trail-tip">&#127774; Best sunset spot on the peninsula &mdash; don&rsquo;t skip</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop fri">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">~8:00</div>
+        </div>
+        <div class="stop-card">
           <span class="stop-icon">&#127840;</span>
           <div class="stop-name">Fish &amp; Chips in Tobermory</div>
-          <div class="stop-location">Tobermory, ON &middot; 20&ndash;30 min from Black Creek</div>
-          <div class="stop-detail">Tobermory is the northernmost tip of the Bruce Peninsula and it earns its reputation for fish &amp; chips. Grab a table with harbour views, order the Georgian Bay whitefish or perch, and watch the dive boats come in as the sun drops. This is the trip highlight before it's even Day 2.</div>
+          <div class="stop-location">Tobermory, ON &middot; 5 min from NP Visitor Centre</div>
+          <div class="stop-detail">Right after the sunset hike, roll into Tobermory for the legendary fish &amp; chips. Harbour views, Georgian Bay whitefish or perch, dive boats returning for the night. You&rsquo;ve been moving all day &mdash; this is the reward. Take your time.</div>
           <div class="stop-tags">
             <span class="tag">Local whitefish</span>
             <span class="tag">Harbour views</span>
@@ -406,13 +432,13 @@
       <div class="stop fri">
         <div class="stop-line-col">
           <div class="stop-dot"></div>
-          <div class="stop-time">~8:30</div>
+          <div class="stop-time">~9:30</div>
         </div>
         <div class="stop-card">
           <span class="stop-icon">&#128293;</span>
           <div class="stop-name">Campfire Night &middot; Stokes Bay Cabin</div>
           <div class="stop-location">17 Government Dock Road &middot; Quiet hours 11PM</div>
-          <div class="stop-detail">Back to the cabin. Fire up, put on music, wind down. You hiked this morning, swam this afternoon, ate well tonight. Early-ish bedtime is a gift &mdash; tomorrow starts at dawn with a packed hike schedule. Quiet hours at 11 PM. Sleep well.</div>
+          <div class="stop-detail">Back to the cabin. Fire up, music on, wind down. You hiked this morning, swam this afternoon, caught the sunset over Georgian Bay, and ate well. Quiet hours at 11 PM. Sleep well &mdash; tomorrow starts at dawn.</div>
           <div class="stop-tags">
             <span class="tag">Campfire</span>
             <span class="tag">Music</span>
@@ -459,7 +485,7 @@
           <span class="stop-icon">&#9749;</span>
           <div class="stop-name">Tea, Coffee &amp; Pack Up &middot; Stokes Bay Cabin</div>
           <div class="stop-location">17 Government Dock Road &middot; Checkout before 11:00 AM</div>
-          <div class="stop-detail">You won't be back here tonight, so pack everything out. Dress for the hike &mdash; you're going straight to the trail. Bring a packed breakfast to eat at the Grotto beach after the hike. Checkout by 11 AM. Leave the place tidy for Cathy.</div>
+          <div class="stop-detail">You won&rsquo;t be back here tonight, so pack everything out. Dress for the hike &mdash; you&rsquo;re going straight to the trail. Bring a packed breakfast to eat at the Grotto beach after the hike. Checkout by 11 AM. Leave the place tidy for Cathy.</div>
           <div class="stop-tags">
             <span class="tag">Pack for hike + beach</span>
             <span class="tag">Pack breakfast to go</span>
@@ -478,7 +504,7 @@
           <span class="stop-icon">&#128663;</span>
           <div class="stop-name">Halfway Log Dump Parking &mdash; Parks Canada</div>
           <div class="stop-location">Cyprus Lake Rd, Bruce Peninsula National Park</div>
-          <div class="stop-detail">Your parking reservation opens at 7:00 AM sharp. This lot fills fast on summer Saturdays &mdash; your reserved slot is your ticket to an early start. Show the QR code at the gate. You have the lot until 1:00 PM, so the timing works perfectly with the hike.</div>
+          <div class="stop-detail">Your parking reservation opens at 7:00 AM sharp. This lot fills fast on summer Saturdays &mdash; your reserved slot is your ticket to an early start. Show the QR code at the gate. You have the lot until 1:00 PM.</div>
           <div class="stop-tags">
             <span class="tag">Reservation INPC26-21998938B1</span>
             <span class="tag">7:00 AM &ndash; 1:00 PM</span>
@@ -498,11 +524,11 @@
           <span class="stop-icon">&#129695;</span>
           <div class="stop-name">Halfway Log Dump to The Grotto</div>
           <div class="stop-location">Bruce Peninsula National Park &middot; 6 km return &middot; Challenging</div>
-          <div class="stop-detail">One of Canada's most spectacular short hikes. The 6 km return trail from Halfway Log Dump leads to the Grotto &mdash; a sea cave carved into the Niagara Escarpment where Georgian Bay water glows an impossible shade of turquoise. Expect rugged terrain, limestone scrambling, exposed rock faces, and at least one moment where you stop and just stare. Challenging but absolutely worth it. Allow 2&ndash;3 hours on the trail.</div>
+          <div class="stop-detail">One of Canada&rsquo;s most spectacular short hikes. The 6 km return trail leads to the Grotto &mdash; a sea cave carved into the Niagara Escarpment where Georgian Bay water glows turquoise. Expect limestone scrambling, exposed rock faces, and rugged terrain throughout. Challenging but absolutely worth it. Allow 2&ndash;3 hours.</div>
           <div class="stop-tags">
             <span class="tag">6 km return</span>
             <span class="tag">~2&ndash;3 hrs</span>
-            <span class="tag">Challenging terrain</span>
+            <span class="tag">Challenging</span>
             <span class="tag">Sea cave</span>
             <span class="tag">Rugged trail</span>
           </div>
@@ -519,7 +545,7 @@
           <span class="stop-icon">&#127949;</span>
           <div class="stop-name">Breakfast + Swim &middot; Grotto Beach</div>
           <div class="stop-location">The Grotto &middot; Georgian Bay &middot; Bruce Peninsula National Park</div>
-          <div class="stop-detail">Eat the breakfast you packed at the edge of the Grotto. Then get in the water &mdash; the turquoise Georgian Bay here is cold, clear, and utterly unforgettable. This is your earned reward. Take your time. You have the parking lot until 1 PM, so there's no rush.</div>
+          <div class="stop-detail">Eat the breakfast you packed at the edge of the Grotto. Then get in the water &mdash; turquoise, cold, and utterly unforgettable. Your earned reward. You have the parking lot until 1 PM, so no rush.</div>
           <div class="stop-tags">
             <span class="tag">Eat your packed breakfast</span>
             <span class="tag">Cold water swim</span>
@@ -538,7 +564,7 @@
           <span class="stop-icon">&#128663;</span>
           <div class="stop-name">Head to Forest Retreat &middot; Wiarton</div>
           <div class="stop-location">Halfway Log Dump &rarr; 181 Kings Crescent, Wiarton &middot; ~45 min</div>
-          <div class="stop-detail">Parking expires at 1 PM, so this is your cue. Load up and drive south to Wiarton (~45 minutes). Check-in at the Rustic Forest Retreat opens at 2 PM. Amanda's tent property is your home for the night.</div>
+          <div class="stop-detail">Parking expires at 1 PM &mdash; load up and drive south to Wiarton (~45 minutes). Check-in at the Rustic Forest Retreat opens at 2 PM.</div>
           <div class="stop-tags">
             <span class="tag">Parking ends 1PM</span>
             <span class="tag">~45 min drive south</span>
@@ -556,7 +582,7 @@
           <span class="stop-icon">&#9978;</span>
           <div class="stop-name">Check-in &middot; Rustic Forest Retreat</div>
           <div class="stop-location">181 Kings Crescent, Wiarton &middot; Hosted by Amanda &middot; Check-in after 2PM</div>
-          <div class="stop-detail">Tent stay on Amanda's forested property. She lives on-site. Get sorted, set up camp, and decompress. Check-in instructions arrive via Airbnb 24 hours before.</div>
+          <div class="stop-detail">Tent stay on Amanda&rsquo;s forested property. She lives on-site. Get sorted, set up camp, and decompress. Check-in instructions arrive via Airbnb 24 hours before.</div>
           <div class="stop-tags">
             <span class="tag">Check-in after 2PM</span>
             <span class="tag">Tent stay</span>
@@ -574,7 +600,7 @@
           <span class="stop-icon">&#127774;</span>
           <div class="stop-name">Choose Your Afternoon</div>
           <div class="stop-location">Wiarton &amp; surroundings</div>
-          <div class="stop-detail"><strong>Option A &mdash; Sandy Beach &amp; Paddleboard:</strong> Explore the neighbourhood for a beach to get the paddleboard back out on the water. Colpoys Bay (right in Wiarton) is a gorgeous option &mdash; calm and sandy.<br><br><strong>Option B &mdash; Stay by the Fire:</strong> If you've had your fill of adventure, just stay put. BBQ, music, fire, and a restful evening in the forest. You've earned either choice today.</div>
+          <div class="stop-detail"><strong>Option A &mdash; Sandy Beach &amp; Paddleboard:</strong> Colpoys Bay (right in Wiarton) is calm and sandy &mdash; perfect for a second SUP session.<br><br><strong>Option B &mdash; Stay by the Fire:</strong> BBQ, music, fire, and a restful evening in the forest. You&rsquo;ve more than earned it today.</div>
           <div class="stop-tags">
             <span class="tag">Your call</span>
             <span class="tag">Colpoys Bay nearby</span>
@@ -587,7 +613,7 @@
   </section>
 
   <div class="scenic-break scenic-break-sat">
-    <div class="scenic-quote">&ldquo;The Grotto's water gets its turquoise colour from dissolved limestone &mdash; the same escarpment that forms Niagara Falls.&rdquo;</div>
+    <div class="scenic-quote">&ldquo;The Grotto&rsquo;s water gets its turquoise colour from dissolved limestone &mdash; the same escarpment that forms Niagara Falls.&rdquo;</div>
   </div>
 
   <!-- ══ SUNDAY ══ -->
@@ -596,7 +622,7 @@
       <div class="day-header-text">
         <div class="day-label">Day 03 &middot; Sunday</div>
         <h2 class="day-title">One Last Trail,<br><em>Then Home</em></h2>
-        <p class="day-desc">Breakfast by the fire, checkout, then pick your final hike. Four good options — from clifftop panoramas to spiral staircases and hidden ruins. Finish with a truck burger on the way south.</p>
+        <p class="day-desc">Breakfast by the fire, checkout, then pick your final hike. Four good options &mdash; clifftop panoramas, spiral staircases, hidden ruins. Finish with a truck burger on the way south.</p>
         <div class="day-bg-num">SUN</div>
       </div>
       <div class="day-visual day-sun-visual">
@@ -616,7 +642,7 @@
           <span class="stop-icon">&#128293;</span>
           <div class="stop-name">Breakfast by the Fire</div>
           <div class="stop-location">Rustic Forest Retreat &middot; 181 Kings Crescent, Wiarton</div>
-          <div class="stop-detail">Slow Sunday morning. Fire up the camp stove or open flames, make something proper, drink good coffee. No phone, no rush &mdash; just the trees and the smell of woodsmoke. You'll be hiking again soon enough.</div>
+          <div class="stop-detail">Slow Sunday morning. Fire, coffee, no phone. Just the trees and woodsmoke. You&rsquo;ll be hiking again soon enough.</div>
           <div class="stop-tags">
             <span class="tag">Fire breakfast</span>
             <span class="tag">Slow morning</span>
@@ -635,7 +661,7 @@
           <span class="stop-icon">&#127749;</span>
           <div class="stop-name">Checkout &middot; Rustic Forest Retreat</div>
           <div class="stop-location">181 Kings Crescent, Wiarton &middot; Checkout before 11:00 AM</div>
-          <div class="stop-detail">Pack up the tent and leave the space tidy. Respectful of Amanda's property &mdash; she lives here. Load the car and you're heading straight to the trail.</div>
+          <div class="stop-detail">Pack up the tent and leave the space tidy. Amanda lives here &mdash; be respectful. Load the car and head straight to the trail.</div>
           <div class="stop-tags">
             <span class="tag">Checkout by 11AM</span>
             <span class="tag">Leave it tidy</span>
@@ -653,7 +679,7 @@
           <span class="stop-icon">&#127956;</span>
           <div class="stop-name">Choose Your Morning Hike</div>
           <div class="stop-location">Wiarton &amp; Bruce Peninsula &middot; All trailheads within 20 min</div>
-          <div class="stop-detail">Four good options — pick based on energy, time, and mood. All are within easy reach of Wiarton. Pack snacks and eat on the trail.</div>
+          <div class="stop-detail">Four good options &mdash; pick based on energy, time, and mood. Pack snacks and eat on the trail.</div>
 
           <div class="trail-options">
 
@@ -668,7 +694,7 @@
                 <span class="tag">Moderate</span>
                 <span class="tag">Free entry</span>
               </div>
-              <p>A rewarding loop through Hope Bay Forest Provincial Nature Reserve with cliff-edge views over Hope Bay and Lake Huron. Rocky and rooty underfoot — proper trail shoes needed. Not technical, but it demands attention. 4.7 stars on AllTrails from 130+ reviews.</p>
+              <p>A rewarding loop through Hope Bay Forest Provincial Nature Reserve with cliff-edge views over Hope Bay and Lake Huron. Rocky and rooty underfoot &mdash; proper trail shoes needed. 4.7 stars on AllTrails from 130+ reviews.</p>
               <div><span class="trail-warn">&#128027; Tick territory &mdash; tuck socks into pants, check after</span></div>
             </div>
 
@@ -683,7 +709,7 @@
                 <span class="tag">$10 entry</span>
                 <span class="tag">Cash only</span>
               </div>
-              <p>A local gem just outside Wiarton. Hike the escarpment trails overlooking Colpoy's Bay and explore the atmospheric ruins of the McNeill Estate &mdash; a 17-room stone mansion from the late 1800s, slowly being reclaimed by the forest. Then descend the famous spiral staircase (3 tiers, 30 mesh steps) down the cliffside to the water. Small parking lot (12&ndash;15 cars), so arrive early on a summer Sunday.</p>
+              <p>A local gem just outside Wiarton. Hike the escarpment trails over Colpoy&rsquo;s Bay and explore the ruins of the McNeill Estate &mdash; a 17-room stone mansion from the late 1800s slowly being reclaimed by forest. Then descend the famous spiral staircase (3 tiers, 30 mesh steps) down the cliffside to the water. Small parking lot (12&ndash;15 cars) &mdash; arrive early.</p>
               <div style="display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.5rem;">
                 <span class="trail-warn">&#128181; $10 entry &mdash; cash only, bring bills</span>
                 <span class="trail-warn">&#128294; Bring a flashlight for the cave sections</span>
@@ -701,7 +727,7 @@
                 <span class="tag">Easy</span>
                 <span class="tag">Same site as Option 2</span>
               </div>
-              <p>If you want something shorter, skip the full Spirit Rock loop and head straight for the spiral staircase &mdash; the standout feature of the conservation area. Three tiers of mesh steps wind down the Niagara Escarpment face to the turquoise water of Colpoy's Bay below. Unique, photogenic, and surprisingly fun. Same entry fee applies.</p>
+              <p>Skip the full loop and head straight for the staircase &mdash; the standout feature of Spirit Rock. Three tiers of mesh steps wind down the Niagara Escarpment face to the turquoise water of Colpoy&rsquo;s Bay below. Unique, photogenic, and surprisingly fun. Same entry fee applies.</p>
               <div style="display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.5rem;">
                 <span class="trail-warn">&#128181; $10 entry &mdash; cash only</span>
                 <span class="trail-tip">&#128247; Best photo stop of the whole weekend</span>
@@ -711,7 +737,7 @@
             <div class="trail-option">
               <div class="trail-option-header">
                 <span class="trail-badge">Option 4</span>
-                <span class="trail-option-name">Skinner's Bluff Trail</span>
+                <span class="trail-option-name">Skinner&rsquo;s Bluff Trail</span>
               </div>
               <div class="stop-tags" style="margin:0.4rem 0 0;">
                 <span class="tag">~10 km loop</span>
@@ -719,8 +745,8 @@
                 <span class="tag">Moderate</span>
                 <span class="tag">Free</span>
               </div>
-              <p>Walk the long escarpment edge at Skinner's Bluff for 180-degree views over Georgian Bay and its islands &mdash; Griffith, White Cloud, and Hay. Rocky footpath with roots and crevices, but nothing technical. Often combined with Bruce's Caves nearby for a bonus underground detour. One of the most scenic moderate hikes in Grey County.</p>
-              <div><span class="trail-tip">&#127956; Combine with Bruce's Caves for an extra 30 min adventure</span></div>
+              <p>Walk the long escarpment edge at Skinner&rsquo;s Bluff for 180-degree views over Georgian Bay and its islands &mdash; Griffith, White Cloud, and Hay. Rocky footpath with roots and crevices but nothing technical. Often combined with Bruce&rsquo;s Caves nearby for a bonus underground detour. One of the most scenic moderate hikes in Grey County.</p>
+              <div><span class="trail-tip">&#127956; Combine with Bruce&rsquo;s Caves for an extra 30 min underground adventure</span></div>
             </div>
 
           </div>
@@ -737,7 +763,7 @@
           <span class="stop-icon">&#127828;</span>
           <div class="stop-name">Truck Burger on the Way Home</div>
           <div class="stop-location">Somewhere on Hwy 10 South &middot; Ask locals</div>
-          <div class="stop-detail">Skip the chain. Find the best local food truck or roadside burger spot on the drive south. Ask a local before you leave &mdash; the best ones never show up on Google Maps. Eat outside, take your time, let the weekend settle in. Then it's highway, playlist, and Toronto by late afternoon.</div>
+          <div class="stop-detail">Skip the chain. Find the best local food truck or roadside burger spot on the drive south. Ask a local before you leave &mdash; the best ones never show up on Google Maps. Eat outside, take your time, let the weekend settle in.</div>
           <div class="stop-tags">
             <span class="tag">Ask locals</span>
             <span class="tag">Eat outside</span>
@@ -755,7 +781,7 @@
           <span class="stop-icon">&#127961;</span>
           <div class="stop-name">Back in Toronto</div>
           <div class="stop-location">Bruce Peninsula &rarr; Toronto &middot; ~3 hrs</div>
-          <div class="stop-detail">Windows down, playlist up, the smell of campfire still in your jacket. The city will meet you &mdash; it always does. Three days, three hikes, two beaches, one legendary fish &amp; chips stop, and a campfire that burned until the stars said enough.</div>
+          <div class="stop-detail">Windows down, playlist up, the smell of campfire still in your jacket. Three days, four hikes, two beaches, a lookout tower sunset, one legendary fish &amp; chips stop, and a campfire that burned until the stars said enough.</div>
           <div class="stop-tags">
             <span class="tag">~3 hrs</span>
             <span class="tag">Hwy 10 S</span>
@@ -772,17 +798,17 @@
     <div class="tip-card">
       <span class="tip-icon">&#127920;</span>
       <div class="tip-title">What to Pack</div>
-      <div class="tip-text">Hiking boots (mandatory &mdash; all trails are rocky), swimsuit and dry bag, paddleboard, bug spray, tick repellent (the peninsula in June is serious &mdash; tuck socks into pants on trail), layers for campfire evenings, packed breakfasts for Day 2, headlamp for the tent night and Spirit Rock caves, <strong>cash for Spirit Rock entry ($10)</strong>.</div>
+      <div class="tip-text">Hiking boots (all trails are rocky), swimsuit and dry bag, paddleboard, bug spray, tick repellent (tuck socks into pants on trail), layers for campfire evenings, packed breakfasts for Day 2 trail, headlamp for tent night and Spirit Rock caves, <strong>cash for Spirit Rock entry ($10)</strong>.</div>
     </div>
     <div class="tip-card">
       <span class="tip-icon">&#128663;</span>
-      <div class="tip-title">Parking &amp; Parks</div>
-      <div class="tip-text">Your Halfway Log Dump parking is pre-booked (Reservation INPC26-21998938B1, Sat Jun 27, 7 AM&ndash;1 PM). Spirit Rock Conservation Area charges $10 cash at the gate &mdash; small lot, arrive early. Bruce Peninsula NP day-use pass may also be required at Black Creek PP.</div>
+      <div class="tip-title">Parking &amp; Fees</div>
+      <div class="tip-text">NP day-use entry is $7.90/adult (Burnt Point &amp; Little Dunks on Day 1, park at NP Visitor Centre). Halfway Log Dump parking pre-booked for Sat (Reservation INPC26-21998938B1, 7&ndash;1 PM). Spirit Rock is $10 cash at gate &mdash; small lot, arrive early Sunday.</div>
     </div>
     <div class="tip-card">
       <span class="tip-icon">&#128225;</span>
       <div class="tip-title">Cell Service</div>
-      <div class="tip-text">Spotty north of Owen Sound. Download offline maps before leaving Toronto. AllTrails offline works well for all four Day 3 trail options. Let someone know your itinerary and where you're staying each night.</div>
+      <div class="tip-text">Spotty north of Owen Sound. Download offline maps before leaving Toronto. AllTrails offline works for all trails on this trip. Let someone know your itinerary and where you&rsquo;re staying each night.</div>
     </div>
   </section>
 
