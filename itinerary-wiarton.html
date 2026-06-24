@@ -9,6 +9,41 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    .booking-bar {
+      background: var(--sky-dark);
+      color: rgba(255,255,255,0.75);
+      padding: 0.9rem 8%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 0;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+    .booking-night {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem 2.5rem;
+      align-items: center;
+      width: 100%;
+    }
+    .booking-night + .booking-night {
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .booking-item { display: flex; gap: 0.5rem; align-items: baseline; }
+    .bi-label { font-size: 0.62rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); }
+    .bi-night-tag {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.6);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+  </style>
 </head>
 <body>
 
@@ -68,6 +103,29 @@
     </div>
   </section>
 
+  <!-- ══ BOOKING BAR ══ -->
+  <div class="booking-bar">
+    <div class="booking-night">
+      <span class="bi-night-tag">Night 1 &middot; Fri Jun 26</span>
+      <div class="booking-item"><span class="bi-label">Stay</span><span>Bruce Peninsula Lake Huron Stokes Bay Cabin</span></div>
+      <div class="booking-item"><span class="bi-label">Host</span><span>Cathy</span></div>
+      <div class="booking-item"><span class="bi-label">Address</span><span>17 Government Dock Road, Northern Bruce Peninsula, ON N0H 2M0</span></div>
+      <div class="booking-item"><span class="bi-label">Check-in</span><span>After 3:00 PM</span></div>
+      <div class="booking-item"><span class="bi-label">Check-out</span><span>Before 11:00 AM</span></div>
+      <div class="booking-item"><span class="bi-label">Cost</span><span>$86.97 CAD &middot; Non-refundable</span></div>
+    </div>
+    <div class="booking-night">
+      <span class="bi-night-tag">Night 2 &middot; Sat Jun 27</span>
+      <div class="booking-item"><span class="bi-label">Stay</span><span>Rustic Forest Retreat</span></div>
+      <div class="booking-item"><span class="bi-label">Host</span><span>Amanda</span></div>
+      <div class="booking-item"><span class="bi-label">Address</span><span>181 Kings Crescent, Wiarton, ON N0H 2T0</span></div>
+      <div class="booking-item"><span class="bi-label">Check-in</span><span>After 2:00 PM</span></div>
+      <div class="booking-item"><span class="bi-label">Check-out</span><span>Before 11:00 AM</span></div>
+      <div class="booking-item"><span class="bi-label">Guests</span><span>Max 2 &middot; Pets allowed &middot; Dogs leashed</span></div>
+      <div class="booking-item"><span class="bi-label">Cost</span><span>$63.77 CAD &middot; Free cancel before Jun 26 2PM</span></div>
+    </div>
+  </div>
+
   <!-- ══ ROUTE STRIP ══ -->
   <div class="itin-route">
     <div class="route-stop">
@@ -87,7 +145,7 @@
     <div class="route-stop">
       <div class="route-dot-wrap">
         <div class="route-dot"></div>
-        <div class="route-label">Wiarton Cottage</div>
+        <div class="route-label">Stokes Bay Cabin</div>
       </div>
     </div>
     <div class="route-line"></div>
@@ -109,6 +167,13 @@
       <div class="route-dot-wrap">
         <div class="route-dot"></div>
         <div class="route-label">Tobermory</div>
+      </div>
+    </div>
+    <div class="route-line"></div>
+    <div class="route-stop">
+      <div class="route-dot-wrap">
+        <div class="route-dot"></div>
+        <div class="route-label">Forest Retreat</div>
       </div>
     </div>
     <div class="route-line"></div>
@@ -195,13 +260,13 @@
         </div>
         <div class="stop-card">
           <span class="stop-icon">&#127957;</span>
-          <div class="stop-name">Cottage Check-in + Fire Night</div>
-          <div class="stop-location">170404 Centre Rd, Wiarton &middot; Hosted by Maryam</div>
-          <div class="stop-detail">Check in after 1 PM — arrive post-hike with an appetite. Fire up the BBQ, crack something cold, and let the night take over. Campfire mandatory. Sleep under stars optional but encouraged.</div>
+          <div class="stop-name">Check-in · Stokes Bay Cabin</div>
+          <div class="stop-location">17 Government Dock Road, Northern Bruce Peninsula &middot; Hosted by Cathy</div>
+          <div class="stop-detail">Check in after 3 PM — arrive from Lion's Head post-hike with an appetite. Cathy's cabin is a 15-minute drive south from Lion's Head along the Bruce Peninsula. Fire up whatever's on the grill, crack something cold, and let the night take over. Quiet hours at 11 PM. Sleep well — big day tomorrow.</div>
           <div class="stop-tags">
-            <span class="tag">Check-in after 1PM</span>
-            <span class="tag">BBQ</span>
-            <span class="tag">Campfire</span>
+            <span class="tag">Check-in after 3PM</span>
+            <span class="tag">No pets</span>
+            <span class="tag">Quiet 11PM–9AM</span>
             <span class="tag">Max 2 guests</span>
           </div>
         </div>
@@ -227,7 +292,7 @@
       <div class="day-header-text">
         <div class="day-label">Day 02 &middot; Saturday</div>
         <h2 class="day-title">Grotto,<br><em>Swim &amp; Chips</em></h2>
-        <p class="day-desc">Breakfast over the fire, then one of Ontario's most spectacular hikes. Swim in crystal Georgian Bay water, then reward yourself with legendary fish &amp; chips in Tobermory.</p>
+        <p class="day-desc">Breakfast over the fire, then one of Ontario's most spectacular hikes. Swim in crystal Georgian Bay water, reward yourself with legendary fish &amp; chips in Tobermory, then check into the forest retreat for night two.</p>
         <div class="day-bg-num">SAT</div>
       </div>
     </div>
@@ -242,10 +307,11 @@
         </div>
         <div class="stop-card">
           <span class="stop-icon">&#128293;</span>
-          <div class="stop-name">Breakfast on the Fire</div>
-          <div class="stop-location">Wiarton Cottage</div>
-          <div class="stop-detail">Eggs, bacon, strong coffee — all over open flame. No rush. Let the morning be slow before the trail demands otherwise. This is the best meal of the trip.</div>
+          <div class="stop-name">Breakfast + Checkout · Stokes Bay Cabin</div>
+          <div class="stop-location">17 Government Dock Road &middot; Checkout before 11:00 AM</div>
+          <div class="stop-detail">Eggs, bacon, strong coffee — all over open flame. No rush, but you need to be out by 11 AM. Pack up the car, leave the place tidy, and let the morning be slow before the trail demands otherwise. You won't be back here tonight — tonight is the forest retreat in Wiarton.</div>
           <div class="stop-tags">
+            <span class="tag">Checkout by 11AM</span>
             <span class="tag">Fire breakfast</span>
             <span class="tag">Slow morning</span>
           </div>
@@ -314,6 +380,7 @@
       <div class="stop sat">
         <div class="stop-line-col">
           <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
           <div class="stop-time">~4:30</div>
         </div>
         <div class="stop-card">
@@ -325,6 +392,25 @@
             <span class="tag">Local whitefish</span>
             <span class="tag">Harbour views</span>
             <span class="tag">Tobermory</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop sat">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-time">~6:30</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#9978;</span>
+          <div class="stop-name">Check-in · Rustic Forest Retreat</div>
+          <div class="stop-location">181 Kings Crescent, Wiarton &middot; Hosted by Amanda &middot; Check-in after 2PM</div>
+          <div class="stop-detail">Drive south from Tobermory (~45 min) to Wiarton and check into Amanda's Rustic Forest Retreat — a tent stay on her property. Amanda lives on-site in a trailer while working the land. Dogs on the property are leashed or in the fenced area. Quiet night in the trees, stars overhead, cooler temperatures than the city. Check-in instructions arrive 24 hours before via Airbnb.</div>
+          <div class="stop-tags">
+            <span class="tag">Check-in after 2PM</span>
+            <span class="tag">Tent stay</span>
+            <span class="tag">Pets allowed · Dogs leashed</span>
+            <span class="tag">Respect quiet hours</span>
           </div>
         </div>
       </div>
@@ -360,11 +446,12 @@
         </div>
         <div class="stop-card">
           <span class="stop-icon">&#127749;</span>
-          <div class="stop-name">Checkout + Morning Pack</div>
-          <div class="stop-location">Wiarton Cottage &middot; Check out before 11:00 AM</div>
-          <div class="stop-detail">Leave the place better than you found it. Pack up, load the car, make a last coffee. Check out is by 11 AM — no rush if you're up with the birds.</div>
+          <div class="stop-name">Checkout · Rustic Forest Retreat</div>
+          <div class="stop-location">181 Kings Crescent, Wiarton &middot; Check out before 11:00 AM</div>
+          <div class="stop-detail">Leave the space tidy and respectful of Amanda's property. Pack up, load the car, make a last coffee. Checkout is by 11 AM. Then one last morning activity before the drive home.</div>
           <div class="stop-tags">
             <span class="tag">Checkout by 11AM</span>
+            <span class="tag">Leave tidy</span>
           </div>
         </div>
       </div>
@@ -454,7 +541,7 @@
     <div class="itin-footer-links">
       <a href="short-trips.html">&#8592; All Trips</a>
       <a href="itinerary.html">All Itineraries</a>
-      <a href="https://www.airbnb.ca/rooms/942277493439313809" target="_blank">Airbnb Listing</a>
+      <a href="https://www.pc.gc.ca/en/pn-np/on/bruce/visit/bruce-peninsula-np-pn" target="_blank">Bruce Peninsula NP</a>
       <a href="https://www.pc.gc.ca/en/pn-np/on/bruce" target="_blank">Parks Canada</a>
     </div>
   </footer>
