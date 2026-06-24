@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Useful Links — Summer 2026</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    .links-section {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+    .links-group {
+      margin-bottom: 3rem;
+    }
+    .links-group-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      color: var(--sky-dark);
+      margin-bottom: 1rem;
+      padding-bottom: .5rem;
+      border-bottom: 2px solid var(--sand);
+    }
+    .link-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius);
+      border: 1px solid #e5e7eb;
+      margin-bottom: .75rem;
+      text-decoration: none;
+      color: inherit;
+      background: #fff;
+      transition: box-shadow .18s, transform .18s;
+    }
+    .link-card:hover {
+      box-shadow: 0 4px 18px rgba(0,0,0,.09);
+      transform: translateY(-2px);
+    }
+    .link-icon {
+      font-size: 1.6rem;
+      flex-shrink: 0;
+      margin-top: .1rem;
+    }
+    .link-body {}
+    .link-name {
+      font-weight: 600;
+      color: var(--text);
+      font-size: 1rem;
+      margin-bottom: .2rem;
+    }
+    .link-desc {
+      font-size: .88rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .link-url {
+      font-size: .78rem;
+      color: var(--sky-dark);
+      margin-top: .3rem;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">&#9788; Summer 2026</a>
+    <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="short-trips.html">Short Trips</a></li>
+      <li><a href="cycling-trips.html">Cycling Trips</a></li>
+      <li><a href="itinerary.html">Travel Itinerary</a></li>
+      <li><a href="links.html">Useful Links</a></li>
+    </ul>
+  </nav>
+
+  <header class="page-hero bg-sky">
+    <p class="hero-eyebrow" style="background:rgba(0,0,0,0.15);color:#fff;display:inline-block;padding:.35rem 1rem;border-radius:100px;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;">Resources &amp; References</p>
+    <h1>Useful Links</h1>
+    <p>Trails, parks, weather, and everything else you need before you go.</p>
+  </header>
+
+  <div class="links-section">
+
+    <div class="links-group">
+      <h2 class="links-group-title">&#127956; Trails &amp; Hiking</h2>
+
+      <a class="link-card" href="https://www.brucepeninsula.org/bruce-trail-and-hiking" target="_blank" rel="noopener">
+        <div class="link-icon">&#127755;</div>
+        <div class="link-body">
+          <div class="link-name">Bruce Peninsula — Trails &amp; Hiking</div>
+          <div class="link-desc">Official guide to hiking trails on the Bruce Peninsula, including the Bruce Trail, day hikes, and backcountry routes.</div>
+          <div class="link-url">brucepeninsula.org</div>
+        </div>
+      </a>
+
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2026 Summer Trips. Made with wanderlust.</p>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
