@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tobermory Weekend · Jun 26–28 — Summer 2026</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/itinerary.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    .booking-bar {
+      background: var(--sky-dark);
+      color: rgba(255,255,255,0.75);
+      padding: 0.9rem 8%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 0;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+    .booking-night {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem 2.5rem;
+      align-items: center;
+      width: 100%;
+    }
+    .booking-night + .booking-night {
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .booking-item { display: flex; gap: 0.5rem; align-items: baseline; }
+    .bi-label { font-size: 0.62rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); }
+    .bi-night-tag {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.6);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .parking-note {
+      background: rgba(255,255,255,0.06);
+      border-left: 3px solid rgba(255,255,255,0.25);
+      border-radius: 4px;
+      padding: 0.6rem 1rem;
+      margin-top: 0.75rem;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.65);
+      width: 100%;
+    }
+    .parking-note strong { color: rgba(255,255,255,0.9); }
+  </style>
+</head>
+<body>
+
+  <a class="back-btn" href="short-trips.html">&#8592; All Trips</a>
+
+  <!-- ══ HERO ══ -->
+  <section class="itin-hero">
+    <div class="itin-hero-bg"></div>
+
+    <div class="itin-trees">
+      <div class="itin-tree tc"></div>
+      <div class="itin-tree tb"></div>
+      <div class="itin-tree ta"></div>
+      <div class="itin-tree tc"></div>
+      <div class="itin-tree tb"></div>
+      <div class="itin-tree ta"></div>
+      <div class="itin-tree tc"></div>
+      <div class="itin-tree tb"></div>
+      <div class="itin-tree ta"></div>
+      <div class="itin-tree tc"></div>
+      <div class="itin-tree tb"></div>
+      <div class="itin-tree ta"></div>
+      <div class="itin-tree tc"></div>
+      <div class="itin-tree tb"></div>
+    </div>
+
+    <div class="itin-hero-content">
+      <div class="itin-eyebrow">Ontario &middot; June 26–28, 2026</div>
+      <h1 class="itin-hero-title">
+        Tobermory
+        <em>Weekend</em>
+      </h1>
+      <p class="itin-hero-sub">Drive north at dawn, breakfast on the cliffs, swim in Georgian Bay, fish &amp; chips at the edge of the world, and two nights under the stars.</p>
+      <div class="itin-stats">
+        <div class="itin-stat">
+          <span class="num">3</span>
+          <span class="lbl">Days</span>
+        </div>
+        <div class="itin-stat">
+          <span class="num">~3h</span>
+          <span class="lbl">From Toronto</span>
+        </div>
+        <div class="itin-stat">
+          <span class="num">3</span>
+          <span class="lbl">Hikes</span>
+        </div>
+        <div class="itin-stat">
+          <span class="num">&#8734;</span>
+          <span class="lbl">Campfire Hours</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="itin-scroll-hint">
+      <span>Scroll</span>
+      <div class="itin-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ══ BOOKING BAR ══ -->
+  <div class="booking-bar">
+    <div class="booking-night">
+      <span class="bi-night-tag">Night 1 &middot; Fri Jun 26</span>
+      <div class="booking-item"><span class="bi-label">Stay</span><span>Bruce Peninsula Lake Huron Stokes Bay Cabin</span></div>
+      <div class="booking-item"><span class="bi-label">Host</span><span>Cathy</span></div>
+      <div class="booking-item"><span class="bi-label">Address</span><span>17 Government Dock Road, Northern Bruce Peninsula, ON N0H 2M0</span></div>
+      <div class="booking-item"><span class="bi-label">Check-in</span><span>After 3:00 PM</span></div>
+      <div class="booking-item"><span class="bi-label">Check-out</span><span>Before 11:00 AM</span></div>
+      <div class="booking-item"><span class="bi-label">Cost</span><span>$86.97 CAD &middot; Non-refundable</span></div>
+    </div>
+    <div class="booking-night">
+      <span class="bi-night-tag">Night 2 &middot; Sat Jun 27</span>
+      <div class="booking-item"><span class="bi-label">Stay</span><span>Rustic Forest Retreat</span></div>
+      <div class="booking-item"><span class="bi-label">Host</span><span>Amanda</span></div>
+      <div class="booking-item"><span class="bi-label">Address</span><span>181 Kings Crescent, Wiarton, ON N0H 2T0</span></div>
+      <div class="booking-item"><span class="bi-label">Check-in</span><span>After 2:00 PM</span></div>
+      <div class="booking-item"><span class="bi-label">Check-out</span><span>Before 11:00 AM</span></div>
+      <div class="booking-item"><span class="bi-label">Cost</span><span>$63.77 CAD &middot; Free cancel before Jun 26 2PM</span></div>
+      <div class="parking-note">&#128663; <strong>Parks Canada Parking · Sat Jun 27</strong> &mdash; Halfway Log Dump, Bruce Peninsula NP &middot; 7:00 AM – 1:00 PM &middot; Reservation <strong>INPC26-21998938B1</strong> &middot; 2 adults</div>
+    </div>
+  </div>
+
+  <!-- ══ ROUTE STRIP ══ -->
+  <div class="itin-route">
+    <div class="route-stop">
+      <div class="route-dot-wrap">
+        <div class="route-dot start"></div>
+        <div class="route-label">Toronto</div>
+      </div>
+    </div>
+    <div class="route-line"></div>
+    <div class="route-stop">
+      <div class="route-dot-wrap">
+        <div class="route-dot"></div>
+        <div class="route-label">Lion's Head / Blue Mtn</div>
+      </div>
+    </div>
+    <div class="route-line"></div>
+    <div class="route-stop">
+      <div class="route-dot-wrap">
+        <div class="route-dot"></div>
+        <div class="route-label">Stokes Bay Cabin</div>
+      </div>
+    </div>
+    <div class="route-line"></div>
+    <div class="route-stop">
+      <div class="route-dot-wrap">
+        <div class="route-dot"></div>
+        <div class="route-label">Black Creek PP</div>
+      </div>
+    </div>
+    <div class="route-line"></div>
+    <div class="route-stop">
+      <div class="route-dot-wrap">
+        <div class="route-dot"></div>
+        <div class="route-label">Tobermory</div>
+      </div>
+    </div>
+    <div class="route-line"></div>
+    <div class="route-stop">
+      <div class="route-dot-wrap">
+        <div class="route-dot"></div>
+        <div class="route-label">Halfway Log Dump</div>
+      </div>
+    </div>
+    <div class="route-line"></div>
+    <div class="route-stop">
+      <div class="route-dot-wrap">
+        <div class="route-dot"></div>
+        <div class="route-label">The Grotto</div>
+      </div>
+    </div>
+    <div class="route-line"></div>
+    <div class="route-stop">
+      <div class="route-dot-wrap">
+        <div class="route-dot"></div>
+        <div class="route-label">Forest Retreat</div>
+      </div>
+    </div>
+    <div class="route-line"></div>
+    <div class="route-stop">
+      <div class="route-dot-wrap">
+        <div class="route-dot"></div>
+        <div class="route-label">Caves Trail</div>
+      </div>
+    </div>
+    <div class="route-line"></div>
+    <div class="route-stop">
+      <div class="route-dot-wrap">
+        <div class="route-dot end"></div>
+        <div class="route-label">Toronto</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ FRIDAY ══ -->
+  <section class="day-section">
+    <div class="day-header day-fri-bg">
+      <div class="day-header-text">
+        <div class="day-label">Day 01 &middot; Friday</div>
+        <h2 class="day-title">Drive North,<br><em>Breakfast on the Hills</em></h2>
+        <p class="day-desc">Leave at 8 AM and beat the traffic north. Hit the trail by 10 and eat breakfast with a view. Then check in, swim, fish &amp; chips in Tobermory, and a proper campfire night.</p>
+        <div class="day-bg-num">FRI</div>
+      </div>
+      <div class="day-visual day-fri-visual">
+        <div class="fire-wrap">
+          <div class="flame"></div>
+          <div class="flame"></div>
+          <div class="flame"></div>
+          <div class="flame"></div>
+          <div class="flame"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stops-list">
+
+      <div class="stop fri">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">8:00</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#128663;</span>
+          <div class="stop-name">Depart Toronto</div>
+          <div class="stop-location">Toronto &rarr; Bruce Peninsula &middot; ~2.5 hrs</div>
+          <div class="stop-detail">Early start — wheels rolling by 8 AM to beat Friday traffic on Hwy 10 north. Pack the cooler with hike snacks and breakfast for the trail. The city dissolves fast once you're past Barrie; by the time you hit Owen Sound the air already smells different.</div>
+          <div class="stop-tags">
+            <span class="tag">Highway 10 N</span>
+            <span class="tag">8 AM departure</span>
+            <span class="tag">Pack trail breakfast</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop fri">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">~10:00</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#9968;&#65039;</span>
+          <div class="stop-name">Morning Hike — Lion's Head or Blue Mountain</div>
+          <div class="stop-location">Bruce Peninsula &middot; Choose your trail</div>
+          <div class="stop-detail"><strong>Option A — Lion's Head Trail (~7 km loop, 2.5–3 hrs):</strong> Dramatic limestone cliffs dropping straight into Georgian Bay. Exposed ridgeline, panoramic views, some scrambling. One of the finest lookouts in Ontario — worth every step.<br><br><strong>Option B — Blue Mountain, Collingwood (~varies):</strong> A slightly earlier stop on the way north with ski-hill trails and Georgian Bay views. Good choice if you want a shorter hike before a long drive day.<br><br>Either way — eat breakfast up on the trail with a view. Sandwich, granola, whatever you packed. That's the plan.</div>
+          <div class="stop-tags">
+            <span class="tag">Pack breakfast</span>
+            <span class="tag">Eat with a view</span>
+            <span class="tag">Cliff views</span>
+            <span class="tag">Bruce Trail</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop fri">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">~3:00</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#127957;</span>
+          <div class="stop-name">Check-in &middot; Stokes Bay Cabin</div>
+          <div class="stop-location">17 Government Dock Road, Northern Bruce Peninsula &middot; Hosted by Cathy</div>
+          <div class="stop-detail">Check in after 3 PM. Drop bags, shower off the trail, rest a bit. Cathy's cabin sits on the Bruce Peninsula — your base for tonight. No pets, quiet hours at 11 PM. Get your bearings, then you're heading back out almost immediately for the afternoon.</div>
+          <div class="stop-tags">
+            <span class="tag">Check-in after 3PM</span>
+            <span class="tag">No pets</span>
+            <span class="tag">Quiet 11PM–9AM</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop fri">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">~4:30</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#127944;</span>
+          <div class="stop-name">Swim &amp; Paddleboard &middot; Black Creek Provincial Park</div>
+          <div class="stop-location">Black Creek Provincial Park, Bruce Peninsula</div>
+          <div class="stop-detail">A sandy Georgian Bay beach — one of the best on the peninsula. After the morning hike and the long drive, get in the water. The paddleboard comes out here. Calm, clear, and not too crowded on a Friday afternoon. Stay as long as you like — Tobermory is 20–30 minutes north.</div>
+          <div class="stop-tags">
+            <span class="tag">Sandy beach</span>
+            <span class="tag">Paddleboarding</span>
+            <span class="tag">Georgian Bay</span>
+            <span class="tag">Bring SUP</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop fri">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">~6:30</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#127840;</span>
+          <div class="stop-name">Fish &amp; Chips in Tobermory</div>
+          <div class="stop-location">Tobermory, ON &middot; 20–30 min from Black Creek</div>
+          <div class="stop-detail">Tobermory is the northernmost tip of the Bruce Peninsula and it earns its reputation for fish &amp; chips. Grab a table with harbour views, order the Georgian Bay whitefish or perch, and watch the dive boats come in as the sun drops. This is the trip highlight before it's even Day 2.</div>
+          <div class="stop-tags">
+            <span class="tag">Local whitefish</span>
+            <span class="tag">Harbour views</span>
+            <span class="tag">Tobermory</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop fri">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-time">~8:30</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#128293;</span>
+          <div class="stop-name">Campfire Night &middot; Stokes Bay Cabin</div>
+          <div class="stop-location">17 Government Dock Road &middot; Quiet hours 11PM</div>
+          <div class="stop-detail">Back to the cabin. Fire up, put on music, wind down. You hiked this morning, swam this afternoon, ate well tonight. Early-ish bedtime is a gift — tomorrow starts at dawn with a packed hike schedule. Quiet hours at 11 PM. Sleep well.</div>
+          <div class="stop-tags">
+            <span class="tag">Campfire</span>
+            <span class="tag">Music</span>
+            <span class="tag">Early night</span>
+            <span class="tag">Big day tomorrow</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="scenic-break scenic-break-fri">
+    <div class="scenic-quote">&ldquo;The Bruce Trail follows 900 km of Niagara Escarpment — the oldest long-distance hiking trail in Canada.&rdquo;</div>
+  </div>
+
+  <!-- ══ SATURDAY ══ -->
+  <section class="day-section">
+    <div class="day-header day-sat-bg">
+      <div class="day-visual day-sat-visual" style="position:relative;">
+        <div class="wave-container">
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+        </div>
+        <span style="position:relative;z-index:1;">&#127944;</span>
+      </div>
+      <div class="day-header-text">
+        <div class="day-label">Day 02 &middot; Saturday</div>
+        <h2 class="day-title">The Grotto,<br><em>Dawn to Dusk</em></h2>
+        <p class="day-desc">Early start at the Halfway Log Dump for the Grotto hike. Swim and breakfast at the beach after. Check into the forest tent by afternoon. Fire, BBQ, and stars for the night.</p>
+        <div class="day-bg-num">SAT</div>
+      </div>
+    </div>
+
+    <div class="stops-list">
+
+      <div class="stop sat">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">Early</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#9749;</span>
+          <div class="stop-name">Tea, Coffee &amp; Pack Up &middot; Stokes Bay Cabin</div>
+          <div class="stop-location">17 Government Dock Road &middot; Checkout before 11:00 AM</div>
+          <div class="stop-detail">You won't be back here tonight, so pack everything out. Dress for the hike — you're going straight to the trail. Bring a packed breakfast to eat at the Grotto beach after the hike. Checkout by 11 AM. Leave the place tidy for Cathy.</div>
+          <div class="stop-tags">
+            <span class="tag">Pack for hike + beach</span>
+            <span class="tag">Pack breakfast to go</span>
+            <span class="tag">Checkout by 11AM</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop sat">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">7:00</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#128663;</span>
+          <div class="stop-name">Halfway Log Dump Parking — Parks Canada</div>
+          <div class="stop-location">Cyprus Lake Rd, Bruce Peninsula National Park</div>
+          <div class="stop-detail">Your parking reservation opens at 7:00 AM sharp. This lot fills fast on summer Saturdays — your reserved slot is your ticket to an early start. Show the QR code at the gate. You have the lot until 1:00 PM, so the timing works perfectly with the hike.</div>
+          <div class="stop-tags">
+            <span class="tag">Reservation INPC26-21998938B1</span>
+            <span class="tag">7:00 AM – 1:00 PM</span>
+            <span class="tag">2 adults</span>
+            <span class="tag">Show QR at gate</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop sat">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">7:30</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#129695;</span>
+          <div class="stop-name">Halfway Log Dump to The Grotto</div>
+          <div class="stop-location">Bruce Peninsula National Park &middot; 6 km return &middot; Challenging</div>
+          <div class="stop-detail">One of Canada's most spectacular short hikes. The 6 km return trail from Halfway Log Dump leads to the Grotto — a sea cave carved into the Niagara Escarpment where Georgian Bay water glows an impossible shade of turquoise. Expect rugged terrain, limestone scrambling, exposed rock faces, and at least one moment where you stop and just stare. Challenging but absolutely worth it. Allow 2–3 hours on the trail.</div>
+          <div class="stop-tags">
+            <span class="tag">6 km return</span>
+            <span class="tag">~2–3 hrs</span>
+            <span class="tag">Challenging terrain</span>
+            <span class="tag">Sea cave</span>
+            <span class="tag">Rugged trail</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop sat">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">~10:30</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#127949;</span>
+          <div class="stop-name">Breakfast + Swim &middot; Grotto Beach</div>
+          <div class="stop-location">The Grotto &middot; Georgian Bay &middot; Bruce Peninsula National Park</div>
+          <div class="stop-detail">Eat the breakfast you packed at the edge of the Grotto. Then get in the water — the turquoise Georgian Bay here is cold, clear, and utterly unforgettable. This is your earned reward. Take your time. You have the parking lot until 1 PM, so there's no rush.</div>
+          <div class="stop-tags">
+            <span class="tag">Eat your packed breakfast</span>
+            <span class="tag">Cold water swim</span>
+            <span class="tag">No rush until 1PM</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop sat">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">1:00</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#128663;</span>
+          <div class="stop-name">Head to Forest Retreat &middot; Wiarton</div>
+          <div class="stop-location">Halfway Log Dump &rarr; 181 Kings Crescent, Wiarton &middot; ~45 min</div>
+          <div class="stop-detail">Parking expires at 1 PM, so this is your cue. Load up and drive south to Wiarton (~45 minutes). Check-in at the Rustic Forest Retreat opens at 2 PM. Amanda's tent property is your home for the night.</div>
+          <div class="stop-tags">
+            <span class="tag">Parking ends 1PM</span>
+            <span class="tag">~45 min drive south</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop sat">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">~2:00</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#9978;</span>
+          <div class="stop-name">Check-in &middot; Rustic Forest Retreat</div>
+          <div class="stop-location">181 Kings Crescent, Wiarton &middot; Hosted by Amanda &middot; Check-in after 2PM</div>
+          <div class="stop-detail">Tent stay on Amanda's forested property. She lives on-site. Get sorted, set up camp, and decompress. Check-in instructions arrive via Airbnb 24 hours before.</div>
+          <div class="stop-tags">
+            <span class="tag">Check-in after 2PM</span>
+            <span class="tag">Tent stay</span>
+            <span class="tag">Pets allowed &middot; Dogs leashed</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop sat">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-time">Afternoon</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#127774;</span>
+          <div class="stop-name">Choose Your Afternoon</div>
+          <div class="stop-location">Wiarton &amp; surroundings</div>
+          <div class="stop-detail"><strong>Option A — Sandy Beach &amp; Paddleboard:</strong> Explore the neighbourhood for a beach to get the paddleboard back out on the water. Colpoys Bay (right in Wiarton) is a gorgeous option — calm and sandy.<br><br><strong>Option B — Stay by the Fire:</strong> If you've had your fill of adventure, just stay put. BBQ, music, fire, and a restful evening in the forest. You've earned either choice today.</div>
+          <div class="stop-tags">
+            <span class="tag">Your call</span>
+            <span class="tag">Colpoys Bay nearby</span>
+            <span class="tag">BBQ + fire</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="scenic-break scenic-break-sat">
+    <div class="scenic-quote">&ldquo;The Grotto's water gets its turquoise colour from dissolved limestone — the same escarpment that forms Niagara Falls.&rdquo;</div>
+  </div>
+
+  <!-- ══ SUNDAY ══ -->
+  <section class="day-section">
+    <div class="day-header day-sun-bg">
+      <div class="day-header-text">
+        <div class="day-label">Day 03 &middot; Sunday</div>
+        <h2 class="day-title">Caves Trail,<br><em>Then Home</em></h2>
+        <p class="day-desc">One last breakfast by the fire. Checkout and hit the Caves Trail before heading south. Finish with a truck burger on the way home.</p>
+        <div class="day-bg-num">SUN</div>
+      </div>
+      <div class="day-visual day-sun-visual">
+        &#127940;
+      </div>
+    </div>
+
+    <div class="stops-list">
+
+      <div class="stop sun">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">Morning</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#128293;</span>
+          <div class="stop-name">Breakfast by the Fire</div>
+          <div class="stop-location">Rustic Forest Retreat &middot; 181 Kings Crescent, Wiarton</div>
+          <div class="stop-detail">Slow Sunday morning. Fire up the camp stove or open flames, make something proper, drink good coffee. No phone, no rush — just the trees and the smell of woodsmoke. You'll be hiking again soon enough.</div>
+          <div class="stop-tags">
+            <span class="tag">Fire breakfast</span>
+            <span class="tag">Slow morning</span>
+            <span class="tag">No phone</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop sun">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">~9:30</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#127749;</span>
+          <div class="stop-name">Checkout &middot; Rustic Forest Retreat</div>
+          <div class="stop-location">181 Kings Crescent, Wiarton &middot; Checkout before 11:00 AM</div>
+          <div class="stop-detail">Pack up the tent and leave the space tidy. Respectful of Amanda's property — she lives here. Load the car and you're heading straight to the trail.</div>
+          <div class="stop-tags">
+            <span class="tag">Checkout by 11AM</span>
+            <span class="tag">Leave it tidy</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop sun">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">~10:00</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#127956;</span>
+          <div class="stop-name">Caves Trail &middot; Bruce Peninsula</div>
+          <div class="stop-location">Bruce Peninsula &middot; 3–4 hours &middot; Breakfast on the go</div>
+          <div class="stop-detail">The Caves Trail near Wiarton explores ancient sea caves, crevices, and dolostone formations carved over thousands of years. A different kind of adventure from the Grotto — more intimate, equally wild. The trail takes 3–4 hours at a comfortable pace. Bring packed snacks and eat on the trail — you're heading home straight after.</div>
+          <div class="stop-tags">
+            <span class="tag">3–4 hrs</span>
+            <span class="tag">Sea caves</span>
+            <span class="tag">Breakfast on the go</span>
+            <span class="tag">Bruce Peninsula</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop sun">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-connector"></div>
+          <div class="stop-time">~2:00</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#127828;</span>
+          <div class="stop-name">Truck Burger on the Way Home</div>
+          <div class="stop-location">Somewhere on Hwy 10 South &middot; Ask locals</div>
+          <div class="stop-detail">Skip the chain. Find the best local food truck or roadside burger spot on the drive south. Ask a local before you leave — the best ones never show up on Google Maps. Eat outside, take your time, let the weekend settle in. Then it's highway, playlist, and Toronto by late afternoon.</div>
+          <div class="stop-tags">
+            <span class="tag">Ask locals</span>
+            <span class="tag">Eat outside</span>
+            <span class="tag">No chains</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop sun">
+        <div class="stop-line-col">
+          <div class="stop-dot"></div>
+          <div class="stop-time">~5:00</div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-icon">&#127961;</span>
+          <div class="stop-name">Back in Toronto</div>
+          <div class="stop-location">Bruce Peninsula &rarr; Toronto &middot; ~3 hrs</div>
+          <div class="stop-detail">Windows down, playlist up, the smell of campfire still in your jacket. The city will meet you — it always does. Three days, three hikes, two beaches, one legendary fish &amp; chips stop, and a campfire that burned until the stars said enough.</div>
+          <div class="stop-tags">
+            <span class="tag">~3 hrs</span>
+            <span class="tag">Hwy 10 S</span>
+            <span class="tag">Arrive ~5PM</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ TIPS ══ -->
+  <section class="tips-section">
+    <div class="tip-card">
+      <span class="tip-icon">&#127920;</span>
+      <div class="tip-title">What to Pack</div>
+      <div class="tip-text">Hiking boots (mandatory — all three trails are rocky), swimsuit and dry bag, paddleboard, bug spray (the peninsula in June is serious), layers for campfire evenings, packed breakfasts for Day 2 trail, headlamp for the tent night.</div>
+    </div>
+    <div class="tip-card">
+      <span class="tip-icon">&#128663;</span>
+      <div class="tip-title">Parking &amp; Parks</div>
+      <div class="tip-text">Your Halfway Log Dump parking is pre-booked (Reservation INPC26-21998938B1, Sat Jun 27, 7 AM–1 PM). Bruce Peninsula NP also requires a day-use pass — bring it just in case. Black Creek PP may charge separately.</div>
+    </div>
+    <div class="tip-card">
+      <span class="tip-icon">&#128225;</span>
+      <div class="tip-title">Cell Service</div>
+      <div class="tip-text">Spotty north of Owen Sound. Download offline maps before leaving Toronto. AllTrails offline works well for the Grotto and Caves trails. Let someone know your itinerary and where you're staying each night.</div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="itin-footer">
+    <div class="itin-footer-logo">Summer <span>Trips</span> 2026</div>
+    <div class="itin-footer-links">
+      <a href="short-trips.html">&#8592; All Trips</a>
+      <a href="itinerary.html">All Itineraries</a>
+      <a href="https://www.pc.gc.ca/en/pn-np/on/bruce/visit/bruce-peninsula-np-pn" target="_blank">Bruce Peninsula NP</a>
+      <a href="https://www.pc.gc.ca/en/pn-np/on/bruce" target="_blank">Parks Canada</a>
+    </div>
+  </footer>
+
+  <script>
+    const cards = document.querySelectorAll('.stop-card');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateX(0)';
+        }
+      });
+    }, { threshold: 0.12 });
+
+    cards.forEach((c, i) => {
+      c.style.opacity = '0';
+      c.style.transform = 'translateX(24px)';
+      c.style.transition = `opacity 0.45s ${i * 0.06}s, transform 0.45s ${i * 0.06}s`;
+      obs.observe(c);
+    });
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>
